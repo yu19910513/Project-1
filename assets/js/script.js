@@ -16,7 +16,7 @@ function input (){
             console.log(data);
           var title = data.query.search[0].title;
           var pageId = data.query.search[0].pageid;
-          fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles='+title+'&exintro=1&origin=*')
+          fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles='+title+'&exintro=1&origin=*')
           .then(function (responseAgain) {
             return responseAgain.json();
           })
