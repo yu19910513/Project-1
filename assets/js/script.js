@@ -1,32 +1,35 @@
+function onChange() {
+localStorage.setItem('item', $('.selector').val());
+window.location.href = 'page2.html';
+};
+
+input();
+
 function input (){
-    // $('.selector').append($('<option>').attr('value', $('.input').val()).text($('.input').val()));
-    var country = $('.selector').val(); // the input value of text will be use for API fetch
+    var country = localStorage.getItem('item');
     url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+country+"&format=json";
     fetch(url)
         .then(function (response) {
-            console.log(response);
             return response.json();
         })
         .then(function (data) {
-          console.log(data);
+            console.log(data);
           var title = data.query.search[0].title;
           var pageId = data.query.search[0].pageid;
           fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles='+title+'&exintro=1')
           .then(function (responseAgain) {
-            console.log(responseAgain);
             return responseAgain.json();
           })
           .then(function (dataAgain) {
-            console.log(dataAgain);
-            // console.log(dataAgain.query.pages + "." + pageId);
-            $('.text').append(dataAgain.query.pages[pageId].extract)
+            $('.info').append(dataAgain.query.pages[pageId].extract);
+            $('#header').text(title)
           })
-        });}
-// var btn = $('.searchBtn');
-// btn.on('click', input); // when button was clicked
+        })
+}
 
-function onChange() {
-  $('.text').text("");
-  $('.stateName').text(' - '+ $('.selector').val())
-  input();
-};
+
+        $('button').on("click", function() {
+            localStorage.setItem('item', $(this).val())
+            console.log($(this).val());
+            window.location.href = 'page2.html';
+        })
