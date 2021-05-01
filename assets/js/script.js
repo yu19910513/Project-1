@@ -7,8 +7,8 @@ input();
 
 function input (){
     var country = localStorage.getItem('item');
-    url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+country+"&format=json";
-    fetch(url)
+    url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+country+"&format=json&origin=*";
+  fetch(url)
         .then(function (response) {
             return response.json();
         })
@@ -16,7 +16,7 @@ function input (){
             console.log(data);
           var title = data.query.search[0].title;
           var pageId = data.query.search[0].pageid;
-          fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles='+title+'&exintro=1')
+          fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles='+title+'&exintro=1&origin=*')
           .then(function (responseAgain) {
             return responseAgain.json();
           })
