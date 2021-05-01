@@ -59,13 +59,13 @@ button {
     background-image: none;
     color: white;
 }
-/* 
+/*
 #alabama::after {
     content: "hello";
 } */
 #alabama {
     background-image: url("/assets/images/alabama-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -80,7 +80,7 @@ button {
 }
 #alaska {
     background-image: url("/assets/images/alaska-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -95,7 +95,7 @@ button {
 }
 #arizona {
     background-image: url("/assets/images/arizona-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -110,7 +110,7 @@ button {
 }
 #arkansas {
     background-image: url("/assets/images/arkansas-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -125,7 +125,7 @@ button {
 }
 #california {
     background-image: url("/assets/images/california-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -140,7 +140,7 @@ button {
 }
 #colorado {
     background-image: url("/assets/images/colorado-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -155,7 +155,7 @@ button {
 }
 #connecticut {
     background-image: url("/assets/images/connecticut-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -170,7 +170,7 @@ button {
 }
 #delaware {
     background-image: url("/assets/images/delaware-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -185,7 +185,7 @@ button {
 }
 #florida {
     background-image: url("/assets/images/florida-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -200,7 +200,7 @@ button {
 }
 #georgia {
     background-image: url("/assets/images/georgia-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -215,7 +215,7 @@ button {
 }
 #hawaii {
     background-image: url("/assets/images/hawaii-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -230,7 +230,7 @@ button {
 }
 #idaho {
     background-image: url("/assets/images/idaho-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -245,7 +245,7 @@ button {
 }
 #illinois {
     background-image: url("/assets/images/illinois-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -260,7 +260,7 @@ button {
 }
 #indiana {
     background-image: url("/assets/images/indiana-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -275,7 +275,7 @@ button {
 }
 #iowa {
     background-image: url("/assets/images/iowa-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -290,7 +290,7 @@ button {
 }
 #kansas {
     background-image: url("/assets/images/kansas-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -305,7 +305,7 @@ button {
 }
 #kentucky {
     background-image: url("/assets/images/kentucky-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -320,7 +320,7 @@ button {
 }
 #louisiana {
     background-image: url("/assets/images/louisiana-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -335,7 +335,7 @@ button {
 }
 #maine {
     background-image: url("/assets/images/maine-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -350,7 +350,7 @@ button {
 }
 #maryland {
     background-image: url("/assets/images/maryland-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -365,7 +365,7 @@ button {
 }
 #massachusetts {
     background-image: url("/assets/images/massachusetts-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -380,7 +380,7 @@ button {
 }
 #michigan {
     background-image: url("/assets/images/michigan-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -395,7 +395,7 @@ button {
 }
 #minnesota {
     background-image: url("/assets/images/minnesota-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -410,7 +410,7 @@ button {
 }
 #mississippi {
     background-image: url("/assets/images/mississippi-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -425,7 +425,7 @@ button {
 }
 #missouri {
     background-image: url("/assets/images/missouri-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -440,7 +440,7 @@ button {
 }
 #montana {
     background-image: url("/assets/images/montana-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -455,7 +455,7 @@ button {
 }
 #nebraska {
     background-image: url("/assets/images/nebraska-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -470,7 +470,7 @@ button {
 }
 #nevada {
     background-image: url("/assets/images/nevada-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -485,7 +485,7 @@ button {
 }
 #new-hampshire {
     background-image: url("/assets/images/new-hampshire-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -500,7 +500,7 @@ button {
 }
 #new-jersey {
     background-image: url("/assets/images/new-jersey-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -515,7 +515,7 @@ button {
 }
 #new-mexico {
     background-image: url("/assets/images/new-mexico-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -530,7 +530,7 @@ button {
 }
 #new-york {
     background-image: url("/assets/images/new-york-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -545,7 +545,7 @@ button {
 }
 #north-carolina {
     background-image: url("/assets/images/north-carolina-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -560,7 +560,7 @@ button {
 }
 #north-dakota {
     background-image: url("/assets/images/north-dakota-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -575,7 +575,7 @@ button {
 }
 #ohio {
     background-image: url("/assets/images/ohio-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -590,7 +590,7 @@ button {
 }
 #oklahoma {
     background-image: url("/assets/images/oklahoma-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -605,7 +605,7 @@ button {
 }
 #oregon {
     background-image: url("/assets/images/oregon-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -620,7 +620,7 @@ button {
 }
 #pennsylvania {
     background-image: url("/assets/images/pennsylvania-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -635,7 +635,7 @@ button {
 }
 #rhode-island {
     background-image: url("/assets/images/rhode-island-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -650,7 +650,7 @@ button {
 }
 #south-carolina {
     background-image: url("/assets/images/south-carolina-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -665,7 +665,7 @@ button {
 }
 #south-dakota {
     background-image: url("/assets/images/south-dakota-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -680,7 +680,7 @@ button {
 }
 #tennessee {
     background-image: url("/assets/images/tennessee-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -695,7 +695,7 @@ button {
 }
 #texas {
     background-image: url("/assets/images/texas-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -710,7 +710,7 @@ button {
 }
 #utah {
     background-image: url("/assets/images/utah-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -725,7 +725,7 @@ button {
 }
 #vermont {
     background-image: url("/assets/images/vermont-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -740,7 +740,7 @@ button {
 }
 #virginia {
     background-image: url("/assets/images/virginia-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -755,7 +755,7 @@ button {
 }
 #washington {
     background-image: url("/assets/images/washington-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -770,7 +770,7 @@ button {
 }
 #west-virginia {
     background-image: url("/assets/images/west-virginia-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -785,7 +785,7 @@ button {
 }
 #wisconsin {
     background-image: url("/assets/images/wisconsin-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -800,7 +800,7 @@ button {
 }
 #wyoming {
     background-image: url("/assets/images/wyoming-flag-small.png");
-    background-size: 200px 133px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;

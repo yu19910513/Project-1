@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h1>Kid's Corner</h1>
+<h1 class="">Kid's Corner</h1>
 <!-- add a nav bar to take the kids to the flags or search history. Make the search history a new page? -->
 <div class="uk-text-center">
     <!-- Map pulled from https://mapsofusa.net/free-printable-map-of-the-united-states/ -->
@@ -21,7 +21,7 @@
 
 <div class="container">
     <section class="dropdown uk-inline uk-width-1-1">
-            <button id="state-dropdown" class="uk-button uk-button-secondary uk-position-center uk-position-large" type="button">Pick a state from the list to learn more or you can also pick your favorite flag below.</button>
+            <button id="state-dropdown" class="uk-button uk-button-secondary uk-position-center uk-width-1-1" type="button">Pick a state from the list to learn more or you can also pick your favorite flag below.</button>
             <!-- for the dropdown, have it a set height and allow for a scroll. Also, maybe have a list of the letter from the alphabet, that expand when clicked, and the states for that letter are shown/clickable -->
             <div uk-dropdown="pos: bottom-justify" mode="click">
                 <ul class="uk-nav uk-dropdown-nav">
@@ -33,8 +33,7 @@
                 </ul>
             </div>
     </section>
-    <section>
-        <h2>Flag Fun</h2>
+        <h2 class="uk-width-1-1">Flag Fun</h2>
         <label for="search">State Name
             <select name="selector" class="selector" onchange="onChange()">
                 <option value="Alabama">Alabama</option>
@@ -90,84 +89,72 @@
             </select>
         </label>
         <p>Hover on the flags below to see that state name. Click on the flags to learn more fun facts!</p>
-    </section>
-    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
-        <ul class="uk-slideshow-items eventBtn">
+    </div>
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 700px">
+        <div class="uk-slideshow-items js-wrapper eventBtn">
         <!-- put these in a carousel to there are only a handful on the page at once -->
-        <li>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="Alabama" id="alabama" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Alabama</button>
-                <button value="Alaska "id="alaska" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Alaska</button>
-                <button value="Arizona" id="arizona" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Arizona</button>
-                <button value="Arkansas" id="arkansas" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Arkansas</button>
-                <button value="California" id="california" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">California</button>
+
+                <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
+                <div class="uk-grid-column-small uk-grid-row-small uk-child-width-1-3@s
+                uk-child-width-1-5@m uk-child-width-1-8@l uk-text-center" uk-grid>
+                    <button id="alabama" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Alabama</button>
+                    <button id="alaska" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Alaska</button>
+                    <button id="arizona" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Arizona</button>
+                    <button id="arkansas" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Arkansas</button>
+                    <button id="california" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">California</button>
+                    <button id="colorado" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Colorado</button>
+                    <button id="connecticut" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Connecticut</button>
+                    <button id="delaware" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Delaware</button>
+                    <button id="florida" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Florida</button>
+                    <button id="georgia" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Georgia</button>
+                    <button id="hawaii" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Hawaii</button>
+                    <button id="idaho" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Idaho</button>
+                    <button id="illinois" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Illinois</button>
+                    <button id="indiana" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Indiana</button>
+                    <button id="iowa" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Iowa</button>
+                    <button id="kansas" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Kansas</button>
+                    <button  id="kentucky" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Kentucky</button>
+                    <button id="louisiana" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Louisiana</button>
+                    <button  id="maine" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Maine</button>
+                    <button id="maryland" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Maryland</button>
+                    <button id="massachusetts"class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Massachusetts</button>
+                    <button id="michigan" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Michigan</button>
+                    <button id="minnesota" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Minnesota</button>
+                    <button id="mississippi" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Mississippi</button>
+                    <button id="missouri" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Missouri</button>
+                </div>
             </div>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="Colorado" id="colorado" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Colorado</button>
-                <button value="Connecticut" id="connecticut" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Connecticut</button>
-                <button value="Delaware" id="delaware" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Delaware</button>
-                <button value="Florida" id="florida" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Florida</button>
-                <button value="Georgia (U.S. state)" id="georgia" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Georgia</button>
+            <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
+                <div class="uk-grid-column-small uk-grid-row-small uk-child-width-1-3@s
+                    uk-child-width-1-5@m uk-child-width-1-8@l uk-text-center" uk-grid>
+                    <button id="montana" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Montana</button>
+                    <button id="nebraska" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Nebraska</button>
+                    <button id="nevada" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Nevada</button>
+                    <button id="new-hampshire" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">New Hampshire</button>
+                    <button id="new-jersey" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">New Jersey</button>
+                    <button id="new-mexico" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">New Mexico</button>
+                    <button id="new-york" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">New York</button>
+                    <button id="north-carolina" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">North Carolina</button>
+                    <button id="north-dakota" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">North Dakota</button>
+                    <button id="ohio" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Ohio</button>
+                    <button id="oklahoma" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Oklahoma</button>
+                    <button id="oregon" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Oregon</button>
+                    <button id="pennsylvania" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Pennsylvania</button>
+                    <button id="rhode-island" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Rhode Island</button>
+                    <button id="south-carolina" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">South Carolina</button>
+                    <button id="south-dakota" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">South Dakota</button>
+                    <button id="tennessee" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Tennessee</button>
+                    <button id="texas" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Texas</button>
+                    <button id="utah" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Utah</button>
+                    <button id="vermont" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Vermont</button>
+                    <button id="virginia" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Virginia</button>
+                    <button id="washington" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Washington</button>
+                    <button id="west-virginia" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">West Virginia</button>
+                    <button id="wisconsin" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Wisconsin</button>
+                    <button id="wyoming" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Wyoming</button>
+                </div>
             </div>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="hawaii" id="hawaii" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Hawaii</button>
-                <button value="idaho" id="idaho" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Idaho</button>
-                <button value="illinois" id="illinois" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Illinois</button>
-                <button value="indiana" id="indiana" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Indiana</button>
-                <button value="iowa"  id="iowa" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Iowa</button>
-            </div>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="kansas" id="kansas" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Kansas</button>
-                <button  value="kentucky" id="kentucky" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Kentucky</button>
-                <button value="louisiana" id="louisiana" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Louisiana</button>
-                <button  value="maine"  id="maine" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Maine</button>
-                <button value="maryland" id="maryland" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Maryland</button>
-            </div>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="massachusetts" id="massachusetts"class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Massachusetts</button>
-                <button value="michigan" id="michigan" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Michigan</button>
-                <button value="minnesota" id="minnesota" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Minnesota</button>
-                <button value="mississippi" id="mississippi" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Mississippi</button>
-                <button value="missouri" id="missouri" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Missouri</button>
-            </div>
-        </li>
-        <li>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="montana" id="montana" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Montana</button>
-                <button value="nebrasks" id="nebraska" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Nebraska</button>
-                <button value="nevada" id="nevada" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Nevada</button>
-                <button value="new-hampshire" id="new-hampshire" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">New Hampshire</button>
-                <button value="new-jersey" id="new-jersey" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">New Jersey</button>
-            </div>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="new-mexico" id="new-mexico" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">New Mexico</button>
-                <button value="new-york" id="new-york" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">New York</button>
-                <button value="north-carolina" id="north-carolina" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">North Carolina</button>
-                <button value="north-dakota" id="north-dakota" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">North Dakota</button>
-                <button value="ohio"  id="ohio" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Ohio</button>
-            </div>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="oklahoma" id="oklahoma" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Oklahoma</button>
-                <button value="oregon" id="oregon" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Oregon</button>
-                <button value="pennsylvania" id="pennsylvania" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Pennsylvania</button>
-                <button value="Rhode Island" id="rhode-island" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Rhode Island</button>
-                <button value="south california" id="south-carolina" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">South Carolina</button>
-            </div>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="south Dakota" id="south-dakota" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">South Dakota</button>
-                <button value="Tennessee" id="tennessee" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Tennessee</button>
-                <button value="texas" id="texas" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Texas</button>
-                <button value="utah"  id="utah" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Utah</button>
-                <button value="Vermont" id="vermont" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Vermont</button>
-            </div>
-            <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <button value="Virginia" id="virginia" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Virginia</button>
-                <button value="Washington (state)" id="washington" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Washington</button>
-                <button value="West Virginia" id="west-virginia" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">West Virginia</button>
-                <button value="Wisconsin" id="wisconsin" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Wisconsin</button>
-                <button value="wyoming" id="wyoming" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Wyoming</button>
-            </li>
-        </ul>
+        </div>
         <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
         <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
         </div>
