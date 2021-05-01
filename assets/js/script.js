@@ -27,5 +27,6 @@ function input (){
 
 function onChange() {
   $('.text').text("");
+  $('.stateName').text(' - '+ $('.selector').val())
   input();
 };
