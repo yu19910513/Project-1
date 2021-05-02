@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="./assets/css/uikit.min.css"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/page2.css" />
     <script
@@ -14,27 +17,58 @@
     <title>Kid's Corner Page 2</title>
 </head>
 <body>
-  <div class="uk-background-secondary uk-light uk-container uk-container-center uk-margin-top uk-margin-bottom uk-container-expand">
-    <!-- <h1 class="uk-text-center uk-heading-small uk-heading-divider" id="header">Page 2 Title</h1> -->
-    <p class="uk-margin-small-top">
-      <button class="uk-button uk-button-default uk-button-large">Go Back</button>
-    </p>
+  <div class="uk-background-secondary uk-light uk-container uk-container-center uk-margin-top       uk-margin-bottom uk-margin-left uk-container-expand">
+    <div class="uk-grid uk-flex" data-uk-grid-margin>
+      <p class="uk-margin-small-top">
+        <button class="uk-button uk-button-default uk-button-large funFont2">Go Back</button>
+      </p>
 
-    <div class="uk-grid" data-uk-grid-margin>
+      <div class="uk-flex uk-flex-right uk-flex-end uk-padding"> 
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-3@m uk-margin-medium-bottom uk-margin-medium-right uk-height-small">
+          <h3 class="uk-card-title">Current Time</h3>
+          <p>
+            Lorem ipsum color sit amet, consectetur adipiscing elit...
+          </p>
+        </div>
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-3@m uk-margin-medium-bottom">
+          <h3 class="uk-card-title">Current State Weather</h3>
+          <p>
+            Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="uk-grid uk-margin-left" data-uk-grid-margin>
       <div class="uk-width-1-3 uk-row-first">
         <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Flag_of_Washington.svg/1600px-Flag_of_Washington.svg.png" alt="State-Flag" uk-img>
         </div>
       </div>
       <div class="uk-width-2-3">
-        <div class="uk-height-medium uk-flex uk-flex-left uk-flex-middle uk-background-cover uk-dark" data-src="https://images.pexels.com/photos/6389722/pexels-photo-6389722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" uk-img>
-          <div class="uk-margin-medium-top uk-margin-medium-bottom uk-margin-medium-left uk-margin-medium-right uk-text-left@l">
-            <p class="info"></p>
+        <div class="uk-height-medium uk-flex uk-flex-left uk-flex-middle uk-background-cover uk-dark" data-src="https://images.pexels.com/photos/3826435/pexels-photo-3826435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" uk-img>
+          <div class="js-wrapper uk-text-left@l uk-padding">
+            <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
+              <p class="info funFont1">
+                Lorem ipsum dolor sit amet aenean ultricies pretium. Faucibus arcu blandit mus. Ullamcorper maximus mi ac magna. Vivamus nulla aliquet purus laoreet finibus. Euismod consectetur dis ullamcorper. Auctor augue netus justo luctus parturient dignissim. Volutpat consequat donec mus.
+
+                Maecenas senectus euismod ullamcorper nulla condimentum adipiscing. Morbi aenean pretium odio dignissim pulvinar. Lectus nisl urna vulputate suspendisse quam id. Pede quisque tortor cubilia orci. Felis finibus blandit parturient et tempus tellus. Libero faucibus quam scelerisque neque tortor in. Urna auctor lobortis pharetra justo cursus. Dictumst mauris hac lacus.
+
+                Himenaeos cras tempus habitant eleifend enim faucibus libero. Ex lorem euismod malesuada ut commodo curabitur. Donec curabitur luctus diam aenean. Adipiscing pharetra vestibulum enim montes sit platea dictum. Venenatis senectus pede magna at. Euismod a vestibulum nam nulla ipsum.
+
+                Lorem ipsum dolor sit amet aenean ultricies pretium. Faucibus arcu blandit mus. Ullamcorper maximus mi ac magna. Vivamus nulla aliquet purus laoreet finibus. Euismod consectetur dis ullamcorper. Auctor augue netus justo luctus parturient dignissim. Volutpat consequat donec mus.
+
+                Maecenas senectus euismod ullamcorper nulla condimentum adipiscing. Morbi aenean pretium odio dignissim pulvinar. Lectus nisl urna vulputate suspendisse quam id. Pede quisque tortor cubilia orci. Felis finibus blandit parturient et tempus tellus. Libero faucibus quam scelerisque neque tortor in. Urna auctor lobortis pharetra justo cursus. Dictumst mauris hac lacus.
+
+                Himenaeos cras tempus habitant eleifend enim faucibus libero. Ex lorem euismod malesuada ut commodo curabitur. Donec curabitur luctus diam aenean. Adipiscing pharetra vestibulum enim montes sit platea dictum. Venenatis senectus pede magna at. Euismod a vestibulum nam nulla ipsum.
+              </p>
+            </div>
           </div>
         </div>
         </div>
       </div>
 
-      <div class="uk-width-1-1 uk-margin-medium-top">
+      <div class="uk-width-1-1 uk-margin-medium-top uk-margin-left">
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: scale">
 
           <ul class="uk-slideshow-items">
@@ -53,14 +87,24 @@
         </div>
       </div>
 
-      <div class="uk-width-1-1 uk-margin-medium-top uk-margin-medium-bottom">
-        <div class="uk-height-medium uk-flex uk-flex-left uk-flex-middle uk-background-cover uk-dark uk-text-bold uk-text-emphasis" data-src="https://images.pexels.com/photos/1303092/pexels-photo-1303092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" uk-img>
-          <div class="uk-margin-medium-top uk-margin-medium-bottom uk-margin-medium-left uk-margin-medium-right uk-text-left@l">
-            <p>
-              Lorem ipsum dolor sit amet pretium fermentum porttitor eros auctor nisi. Metus magna molestie curabitur tellus arcu leo. Si quam sem maecenas libero magnis. Aliquet sagittis eleifend consectetur.
+      <div class="uk-width-1-1 uk-margin-medium-top uk-margin-medium-bottom uk-margin-left">
+        <div class="uk-height-medium uk-flex uk-flex-left uk-flex-middle uk-background-cover uk-dark uk-text-bold uk-text-emphasis" data-src="https://images.pexels.com/photos/3826435/pexels-photo-3826435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" uk-img>
+          <div class="js-wrapper uk-text-left@l uk-padding">
+            <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
+              <p class="funFont1">
+                Lorem ipsum dolor sit amet pretium fermentum porttitor eros auctor nisi. Metus magna molestie curabitur tellus arcu leo. Si quam sem maecenas libero magnis. Aliquet sagittis eleifend consectetur.
 
-              Suspendisse fusce odio non mauris diam massa si. Eget auctor ut senectus quam risus nam in. Montes quisque dis euismod cras. Dignissim parturient nibh commodo euismod. Nisi aliquam per ultricies hendrerit eleifend. Adipiscing penatibus habitant vel morbi parturient vulputate. Suscipit mauris aenean turpis. Magna euismod ultricies congue elit phasellus nostra ridiculus.
-            </p>
+                Suspendisse fusce odio non mauris diam massa si. Eget auctor ut senectus quam risus nam in. Montes quisque dis euismod cras. Dignissim parturient nibh commodo euismod. Nisi aliquam per ultricies hendrerit eleifend. Adipiscing penatibus habitant vel morbi parturient vulputate. Suscipit mauris aenean turpis. Magna euismod ultricies congue elit phasellus nostra ridiculus.
+
+                Lorem ipsum dolor sit amet pretium fermentum porttitor eros auctor nisi. Metus magna molestie curabitur tellus arcu leo. Si quam sem maecenas libero magnis. Aliquet sagittis eleifend consectetur.
+
+                Suspendisse fusce odio non mauris diam massa si. Eget auctor ut senectus quam risus nam in. Montes quisque dis euismod cras. Dignissim parturient nibh commodo euismod. Nisi aliquam per ultricies hendrerit eleifend. Adipiscing penatibus habitant vel morbi parturient vulputate. Suscipit mauris aenean turpis. Magna euismod ultricies congue elit phasellus nostra ridiculus.
+
+                Lorem ipsum dolor sit amet pretium fermentum porttitor eros auctor nisi. Metus magna molestie curabitur tellus arcu leo. Si quam sem maecenas libero magnis. Aliquet sagittis eleifend consectetur.
+
+                Suspendisse fusce odio non mauris diam massa si. Eget auctor ut senectus quam risus nam in. Montes quisque dis euismod cras. Dignissim parturient nibh commodo euismod. Nisi aliquam per ultricies hendrerit eleifend. Adipiscing penatibus habitant vel morbi parturient vulputate. Suscipit mauris aenean turpis. Magna euismod ultricies congue elit phasellus nostra ridiculus.
+              </p>
+            </div>
           </div>
         </div>
       </div>
