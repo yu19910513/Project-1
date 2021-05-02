@@ -43,15 +43,17 @@ function input (){
       })
       .then(function (data) {
         const statePictureListEl = document.getElementById('statePictureList');
-        removeAllChildNodes(statePictureListEl);
-        for (let i = 0; i < data.hits.length; i++) {
-          const imgEl = document.createElement('img');
-          imgEl.setAttribute('src', data.hits[i].webformatURL);
-          imgEl.setAttribute('alt', `State of ${country} picture`);
-          imgEl.setAttribute('uk-cover', '');
-          const listItemEl = document.createElement('li');
-          listItemEl.appendChild(imgEl);
-          statePictureListEl.appendChild(listItemEl);
+        if (data.hits.length > 0) {
+          removeAllChildNodes(statePictureListEl);
+          for (let i = 0; i < data.hits.length; i++) {
+            const imgEl = document.createElement('img');
+            imgEl.setAttribute('src', data.hits[i].webformatURL);
+            imgEl.setAttribute('alt', `State of ${country} picture`);
+            imgEl.setAttribute('uk-cover', '');
+            const listItemEl = document.createElement('li');
+            listItemEl.appendChild(imgEl);
+            statePictureListEl.appendChild(listItemEl);
+          }
         }
       });
 }
