@@ -116,6 +116,42 @@ function generalInfo(data) {
         };
 };
 
+//time
+var cityArray = ['America/New_York', 'America/Los_Angeles', 'America/Phoenix', 'America/Boise', 'America/Kentucky/Louisville', 'America/Anchorage', 'Pacific/Honolulu']
+var cT = ["Alabama","Illinois" , "Iowa","Minnesota","Mississippi" ,"Oklahoma" ,"Texas" ,"Missouri" ,"South Dakota" , "Wisconsin" ,"Kansas","Kentucky","Louisiana","Nebraska","North Dakota"];
+var mT = ["Colorado" ,"Idaho","Montana", "Nevada",  "Wyoming" ,"New Mexico" ,"Utah" ,];
+var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)","Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina",]
+var pST = ["California","Oregon" , "Washington (state)" ]
+function time(){
+  var d = new Date();
+  for (let j = 0; j < cT.length; j++) {
+  for (let k = 0; k < mT.length; k++) {
+  for (let l = 0; l < eT.length; l++) {
+  for (let p = 0; p < pST.length; p++) {
+  if (localStorage.getItem('item') === 'Arizona' ){
+  $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[2] }))}
+  if (localStorage.getItem('item') === cT[j]){
+  $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[4] }))}
+  if (localStorage.getItem('item') === mT[k]){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[3] }))}
+  if (localStorage.getItem('item') === eT[l]){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[0] }))}
+  if (localStorage.getItem('item') === pST[p]){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[1] }))}
+  if(localStorage.getItem('item') === 'Hawaii'){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[6] }))}
+ if (localStorage.getItem('item') === 'Alaska'){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[5] }))}
+  }
+  }
+  }
+  }
+  // var m = moment().format('h:mm:ss z');
+  // $('.currenttime').text(m);
+};
+
+setInterval(time, 1000);
+
         // Trying out SVG https://www.amcharts.com/docs/v4/
 
         // Create map instance
