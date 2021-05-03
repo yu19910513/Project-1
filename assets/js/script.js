@@ -5,6 +5,7 @@ function removeAllChildNodes(parent) {
   }
 }
 
+// description & history per state
 input();
 
 function input (){
@@ -57,13 +58,13 @@ function input (){
         $('.eventBtn').on("click", function(event) {
             var stateSelected = event.target.value;
             console.log(event.target.text);
-            localStorage.setItem('stateVisited', stateSelected)
+            localStorage.setItem('stateVisited', stateSelected);
             window.location.href = 'page2.html';
         })
 
-        $('a').on("click", function(event) {
-          var stateSelected = event.target.text;
-          console.log(event.target.text);
+        $('.dropDown').on("click", function(event) {
+          var stateSelected = event.target.value;
+          console.log(event.target.value);
           localStorage.setItem('stateVisited', stateSelected)
         });
 
