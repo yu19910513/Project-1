@@ -17,37 +17,42 @@
     <title>Kid's Corner Page 2</title>
 </head>
 <body>
-  <div class="uk-background-secondary uk-light uk-container uk-container-center uk-margin-top       uk-margin-bottom uk-margin-left uk-container-expand">
+  <div class="uk-background-secondary uk-light uk-container uk-container-center uk-margin-top uk-margin-bottom uk-margin-left uk-container-expand uk-border-rounded">
     <div class="uk-grid uk-flex" data-uk-grid-margin>
       <p class="uk-margin-small-top">
         <button class="uk-button uk-button-default uk-button-large funFont2">Go Back</button>
       </p>
 
-      <div class="uk-flex uk-flex-right uk-flex-end uk-padding"> 
-        <div class="uk-card uk-card-default uk-card-body uk-width-1-3@m uk-margin-medium-bottom uk-margin-medium-right uk-height-small">
-          <h3 class="uk-card-title">Current Time</h3>
-          <p>
-            Lorem ipsum color sit amet, consectetur adipiscing elit...
-          </p>
+      <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+        <div>
+          <div class="uk-margin-small-top uk-margin-small-bottom uk-card uk-card-default uk-card-body">
+              <img src="https://i.giphy.com/media/dCEztbgt6zmJFHSPqr/giphy.webp">
+          </div>
         </div>
-        <div class="uk-card uk-card-default uk-card-body uk-width-1-3@m uk-margin-medium-bottom">
-          <h3 class="uk-card-title">Current State Weather</h3>
-          <p>
-            Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+        <div>
+          <div class="uk-margin-small-top uk-margin-small-bottom uk-card uk-card-default uk-card-body">
+              <h3 class="uk-card-title">Current Time</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div>
+          <div class="uk-margin-small-top uk-margin-small-bottom uk-card uk-card-default uk-card-body">
+              <h3 class="uk-card-title">Current Weather</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-    <div class="uk-grid uk-margin-left" data-uk-grid-margin>
-      <div class="uk-width-1-3 uk-row-first">
-        <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Flag_of_Washington.svg/1600px-Flag_of_Washington.svg.png" alt="State-Flag" uk-img>
+    <div class="uk-grid uk-padding-bottom uk-flex uk-flex-wrap" data-uk-grid-margin>
+      <div class="uk-width-1-3">
+        <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-border-rounded flagImage" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Flag_of_Washington.svg/1600px-Flag_of_Washington.svg.png" alt="State-Flag" uk-img>
         </div>
       </div>
       <div class="uk-width-2-3">
-        <div class="uk-height-medium uk-flex uk-flex-left uk-flex-middle uk-background-cover uk-dark" data-src="https://images.pexels.com/photos/3826435/pexels-photo-3826435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" uk-img>
-          <div class="js-wrapper uk-text-left@l uk-padding">
+        <div class="uk-border-rounded uk-height-medium uk-flex uk-flex-left uk-flex-middle uk-background-cover uk-dark" data-src="https://images.pexels.com/photos/3826435/pexels-photo-3826435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" uk-img>
+          <div class="js-wrapper uk-text-left@l uk-padding stateInformation">
             <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
               <p class="info funFont1">
                 
@@ -58,10 +63,10 @@
         </div>
       </div>
 
-      <div class="uk-width-1-1 uk-margin-medium-top uk-margin-left">
+      <div class="uk-width-1-1 uk-margin-medium-top uk-margin-left uk-margin-right">
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: scale">
 
-          <ul id="statePictureList" class="uk-slideshow-items">
+          <ul id="statePictureList" class="uk-slideshow-items uk-border-rounded">
               <li>
                 <img src="https://images.pexels.com/photos/963486/pexels-photo-963486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1000" alt="no image available" uk-cover>
                 <div class="uk-position-center uk-position-small uk-text-center">

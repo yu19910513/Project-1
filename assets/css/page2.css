@@ -14,3 +14,41 @@
   font-size: 8em; 
   color: black;
 }
+
+.flagImage {
+  margin-left: 20px;
+  min-width: 250px;
+}
+
+.stateInformation {
+  min-width: 250px;
+}
+
+/* .headerBackground {
+  background-size: cover;
+  background-position: center;
+} */
+
+.container {
+  padding-right: 0;
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    width: 100%;
+  }
+}
