@@ -243,6 +243,10 @@ function getStateNickName(stateName, fact) {
             `tbody > tr:nth-child(${i}) > td:nth-child(2) > ul > li:nth-child(1)`
           );
           nickName = listItemOne.textContent;
+          //   var nickName = nickName.replace(/\([^()]*\)/g, "");
+          var regex = "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))";
+          var output = RegEx.replace(nickName, regex, "");
+          console.log(output);
           stateNickNameEl.textContent = nickName;
           console.log("NickName", nickName);
         }
