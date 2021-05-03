@@ -9,6 +9,7 @@ input();
 
 function input (){
     var state = localStorage.getItem('item');
+    weather(state);
     url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+state+"&format=json&origin=*";
     fetch(url)
         .then(function (response) {
@@ -66,14 +67,57 @@ function input (){
           localStorage.setItem('item', stateSelected)
         });
 
-        
+
         $('.gobackbtn').on("click", function() {
           window.location.href = 'index.html';
       })
-        
+
+// weather
+//event function
+
+var input = $('.input');
+var btn = $('.search');
+var btnCity = $('.searchCity')
+var select = $('.selector');
+var inputCity = $('.inputCity')
+var rain = '🌧';
+var sun = '☀️';
+var cloud = '🌥';
+var snow = '🌨';
+
+function weather(state) {
+        var url = 'https://api.openweathermap.org/data/2.5/weather?q='+state+ '&appid=c24b1e69b12182932011de7f1b2d7c83';
+        fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        generalInfo(data);
+        });
+
+};
+
+function generalInfo(data) {
+        var temp = Math.round(data.main.temp-273.15);
+        var tempF = Math.round((data.main.temp-273.15)*1.8 + 32);
+        $('.name').text(data.name);
+        $('.temp').text("Temperature: " + temp + "\xB0C/ " + tempF + "\xB0F");
+        var rex = data.weather[0].description.toString().split(' ');
+        if (rex.includes('rain')) {
+            $('.condition').text(data.weather[0].description + rain);
+        } else if (rex.includes('clear')) {
+            $('.condition').text(data.weather[0].description + sun);
+        } else if (rex.includes('snow')) {
+            $('.condition').text(data.weather[0].description + snow);
+        } else if (rex.includes('clouds')) {
+            $('.condition').text(data.weather[0].description + cloud);
+        } else {
+            $('.condition').text(data.weather[0].description)
+        };
+};
 
         // Trying out SVG https://www.amcharts.com/docs/v4/
-      
+
         // Create map instance
         // var chart = am4core.create("chartdiv", am4maps.MapChart);
 
@@ -98,5 +142,3 @@ function input (){
 
         // // Add zoom control
         // chart.zoomControl = new am4maps.ZoomControl();
-
-
