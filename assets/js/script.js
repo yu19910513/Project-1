@@ -8,7 +8,7 @@ function removeAllChildNodes(parent) {
 input();
 
 function input (){
-    var state = localStorage.getItem('item');
+    var state = localStorage.getItem('stateVisited');
     weather(state);
     url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+state+"&format=json&origin=*";
     fetch(url)
@@ -57,14 +57,14 @@ function input (){
         $('.eventBtn').on("click", function(event) {
             var stateSelected = event.target.value;
             console.log(event.target.text);
-            localStorage.setItem('item', stateSelected)
+            localStorage.setItem('stateVisited', stateSelected)
             window.location.href = 'page2.html';
         })
 
         $('a').on("click", function(event) {
           var stateSelected = event.target.text;
           console.log(event.target.text);
-          localStorage.setItem('item', stateSelected)
+          localStorage.setItem('stateVisited', stateSelected)
         });
 
 
@@ -124,19 +124,19 @@ function time(){
   for (let k = 0; k < mT.length; k++) {
   for (let l = 0; l < eT.length; l++) {
   for (let p = 0; p < pST.length; p++) {
-  if (localStorage.getItem('item') === 'Arizona' ){
+  if (localStorage.getItem('stateVisited') === 'Arizona' ){
   $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[2] }))}
-  if (localStorage.getItem('item') === cT[j]){
+  if (localStorage.getItem('stateVisited') === cT[j]){
   $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[4] }))}
-  if (localStorage.getItem('item') === mT[k]){
+  if (localStorage.getItem('stateVisited') === mT[k]){
     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[3] }))}
-  if (localStorage.getItem('item') === eT[l]){
+  if (localStorage.getItem('stateVisited') === eT[l]){
     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[0] }))}
-  if (localStorage.getItem('item') === pST[p]){
+  if (localStorage.getItem('stateVisited') === pST[p]){
     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[1] }))}
-  if(localStorage.getItem('item') === 'Hawaii'){
+  if(localStorage.getItem('stateVisited') === 'Hawaii'){
     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[6] }))}
- if (localStorage.getItem('item') === 'Alaska'){
+ if (localStorage.getItem('stateVisited') === 'Alaska'){
     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[5] }))}
   }
   }
