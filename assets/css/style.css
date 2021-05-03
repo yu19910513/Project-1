@@ -38,7 +38,7 @@ button:hover {
 
 #state-dropdown {
     font-family: 'Cabin Sketch', cursive;
-    font-size: 1.5em;
+    font-size: 1em;
     background-color: black;
     border-radius: 1em;
     margin-top: 1em;
@@ -59,10 +59,7 @@ button {
     background-image: none;
     color: white;
 }
-/*
-#alabama::after {
-    content: "hello";
-} */
+
 #alabama {
     background-image: url("/assets/images/alabama-flag-small.png");
     background-size: contain;
