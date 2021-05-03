@@ -268,6 +268,7 @@ $('.gobackbtn').on("click", function() {
           if (rows[i].cells[0].textContent.trim() === stateName)
             capitalName = rows[i].cells[1].textContent;
             stateCapitalEl.textContent = capitalName;
+            weather(capitalName);
           }
         })
       };
@@ -301,7 +302,51 @@ $('.gobackbtn').on("click", function() {
       });
   }
  
-  
+// weather data for page 2
+
+var input = $('.input');
+var btn = $('.search');
+var btnCity = $('.searchCity')
+var select = $('.selector');
+var inputCity = $('.inputCity')
+var rain = '🌧';
+var sun = '☀️';
+var cloud = '🌥';
+var snow = '🌨';
+
+
+
+function weather(capitalName) {
+        var url = 'https://api.openweathermap.org/data/2.5/weather?q='+capitalName+ '&appid=c24b1e69b12182932011de7f1b2d7c83';
+        fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        generalInfo(data);
+        });
+
+};
+
+function generalInfo(data) {
+        var temp = Math.round(data.main.temp-273.15);
+        var tempF = Math.round((data.main.temp-273.15)*1.8 + 32);
+        $('.name').text(data.name);
+        $('.temp').text("Temperature: " + temp + "\xB0C/ " + tempF + "\xB0F");
+        var rex = data.weather[0].description.toString().split(' ');
+        if (rex.includes('rain')) {
+            $('.condition').text(data.weather[0].description + rain);
+        } else if (rex.includes('clear')) {
+            $('.condition').text(data.weather[0].description + sun);
+        } else if (rex.includes('snow')) {
+            $('.condition').text(data.weather[0].description + snow);
+        } else if (rex.includes('clouds')) {
+            $('.condition').text(data.weather[0].description + cloud);
+        } else {
+            $('.condition').text(data.weather[0].description)
+        };
+};
+
   
   
   
