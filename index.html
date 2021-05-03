@@ -23,7 +23,7 @@
 <div class="container">
     <section class="dropdown uk-inline uk-width-1-1 uk-flex">
             <p class="uk-width-4-5 uk-position-center-left">Pick a state from the list to learn more or you can also pick your favorite flag below.</p>
-            <button id="state-dropdown" class="uk-button uk-button-secondary uk-position-center-right uk-width-auto" type="button"><i class="fas fa-chevron-down"></i></button>
+            <button class="uk-button uk-button-secondary uk-position-center-right uk-width-auto state-dropdown" type="button"><i class="fas fa-chevron-down"></i></button>
             <!-- for the dropdown, have it a set height and allow for a scroll. Also, maybe have a list of the letter from the alphabet, that expand when clicked, and the states for that letter are shown/clickable -->
             <div uk-dropdown="pos: bottom-justify" class="uk-overflow-auto uk-height-small" mode="click" >
                 <ul class="uk-nav uk-dropdown-nav" id="selector">
@@ -155,46 +155,24 @@
         </div>
     </div>
     <div>
-
-       
-
-        <!-- This is the modal with the default close button -->
+        <p uk-margin>
+            <button class="uk-button uk-button-secondary uk-margin-small-right footerbtn" type="button" uk-toggle="target: #modal-close-default">Passport</button>
+            <button class="uk-button uk-button-secondary uk-margin-small-right footerbtn"><a href="#modal-media-youtube" uk-toggle>Fifty Nifty United States Song</a></button>
+        </p>
         <div id="modal-close-default" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <h2 class="uk-modal-title">Default</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <button class="uk-modal-close-default uk-button-secondary footerbtn" type="button" uk-close></button>
+                <h2 class="uk-modal-title">Passport</h2>
+                <p class="passport">Here is a list of all the states that you've visited. </p>
             </div>
         </div>
-
-        <!-- need youtube API for this to work -->
-
-        <p uk-margin>
-            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Default</button>
-            <a class="uk-button uk-button-default" href="#modal-media-youtube2" uk-toggle>Fifty Nifty United States</a>
-            <a class="uk-button uk-button-default" href="#modal-media-youtube1" uk-toggle>States and Their Capitols</a>
-        </p>
-    
-        <div id="modal-media-youtube1" class="uk-flex-top" uk-modal>
+        <div id="modal-media-youtube" class="uk-flex-top" uk-modal>
             <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
-                <button class="uk-modal-close-outside" type="button" uk-close></button>
-                <iframe src="https://youtu.be/se3PMbThhsg" width="1920" height="1080" frameborder="0" uk-video uk-responsive></iframe>
+                <button class="uk-modal-close-outside footerbtn" type="button" uk-close></button>
+                <iframe src="https://www.youtube.com/embed/27D7yuBMItM" title="YouTube video player" width="1920" height="1080" frameborder="0" uk-video uk-responsive></iframe>
             </div>
         </div>
-
-        <div id="modal-media-youtube2" class="uk-flex-top" uk-modal>
-            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
-                <button class="uk-modal-close-outside" type="button" uk-close></button>
-                <iframe src="hhttps://www.youtube.com/watch?v=WhDrGnjacvA&ab_channel=PatrioticAmerica" width="1920" height="1080" frameborder="0" uk-video uk-responsive></iframe>
-            </div>
-        </div>
-       
     </div>
-    
-
-    <!-- add the search history into a modal with the message to start the learning activity -->
-
-    <section">search history list here</section>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
