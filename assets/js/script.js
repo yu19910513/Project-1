@@ -75,11 +75,7 @@ function input (){
 // weather
 //event function
 
-var input = $('.input');
-var btn = $('.search');
-var btnCity = $('.searchCity')
-var select = $('.selector');
-var inputCity = $('.inputCity')
+
 var rain = '🌧';
 var sun = '☀️';
 var cloud = '🌥';
@@ -146,8 +142,7 @@ function time(){
   }
   }
   }
-  // var m = moment().format('h:mm:ss z');
-  // $('.currenttime').text(m);
+
 };
 
 setInterval(time, 1000);

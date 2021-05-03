@@ -2,7 +2,7 @@
 $('.gobackbtn').on("click", function() {
     window.location.href = 'index.html';
   })
-  
+
   //Variables for page 2
   var stateName = '';
   var flowerName;
@@ -24,7 +24,7 @@ $('.gobackbtn').on("click", function() {
   var stateMammalEl = document.querySelector(".state-mammal");
   var stateTreeEl = document.querySelector(".state-tree");
   var stateNickNameEl = document.querySelector(".state-nickname");
-  
+
   var symbols = [
     "List_of_U.S._state_and_territory_flowers",
     "List_of_U.S._state_insects",
@@ -34,18 +34,18 @@ $('.gobackbtn').on("click", function() {
     "List_of_capitals_in_the_United_States",
     "List_of_U.S._state_and_territory_nicknames",
   ];
-  
+
   // Calling functions to run on page load
   getInfo();
-  
+
   // Functions for page 2 -
   function startCollectingData() {
     stateName = localStorage.getItem("stateVisited");
     console.log(stateName);
     getInfo(stateName, symbols[index]);
   }
-  
-  
+
+
   function getInfo() {
     var stateName = localStorage.getItem('stateVisited');
     getStateFlower(stateName, symbols[0]);
@@ -58,10 +58,10 @@ $('.gobackbtn').on("click", function() {
     getStateSummary(stateName);
     //can add donnas || mine getImage funtion and api key from here
   }
-      
+
   function getStateSummary(){
     stateName = localStorage.getItem("stateVisited");
-  // this fetch pulls in the data for the title (i.e. state name) and the general information about the state and displays it on page 2. 
+  // this fetch pulls in the data for the title (i.e. state name) and the general information about the state and displays it on page 2.
     url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+stateName+"&format=json&origin=*";
     fetch(url)
         .then(function (response) {
@@ -72,7 +72,7 @@ $('.gobackbtn').on("click", function() {
           var title = data.query.search[0].title;
           var pageId = data.query.search[0].pageid;
           fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles='+title+'&exintro=1&origin=*')
-  
+
           .then(function (responseAgain) {
             return responseAgain.json();
           })
@@ -81,11 +81,11 @@ $('.gobackbtn').on("click", function() {
             $('.header').text(title)
           })
         })
-    
+
     // set the next URL based on the state selected on the first page.
     const url2 = `https://pixabay.com/api?q=${stateName}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
-  
-    // this fetch pulls in images from pixabay.com/api. 
+
+    // this fetch pulls in images from pixabay.com/api.
     fetch(url2)
       .then(function (response) {
         return response.json();
@@ -106,16 +106,16 @@ $('.gobackbtn').on("click", function() {
         }
       });
   }
-  
+
   // DC - https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
-  } 
-  
-  
-  
+  }
+
+
+
   // // functions for fun facts on page 2
   function getStateFlower(stateName, fact) {
     fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
@@ -141,7 +141,7 @@ $('.gobackbtn').on("click", function() {
         }
       });
   }
-  
+
   function getStateButterfly(stateName, fact) {
     fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
       .then(function (response) {
@@ -165,7 +165,7 @@ $('.gobackbtn').on("click", function() {
         }
       });
   }
-  
+
   function getStateBird(stateName, fact) {
     fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
       .then(function (response) {
@@ -189,7 +189,7 @@ $('.gobackbtn').on("click", function() {
         }
       });
   }
-  
+
   function getStateMammal(stateName, fact) {
     fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
       .then(function (response) {
@@ -221,7 +221,7 @@ $('.gobackbtn').on("click", function() {
         }
       });
   }
-  
+
   function getStateTree(stateName, fact) {
     fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
       .then(function (response) {
@@ -245,7 +245,7 @@ $('.gobackbtn').on("click", function() {
         }
       });
   }
-  
+
   function getStateCapital(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -271,7 +271,7 @@ $('.gobackbtn').on("click", function() {
           }
         })
       };
-  
+
   function getStateNickName(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -300,8 +300,42 @@ $('.gobackbtn').on("click", function() {
         }
       });
   }
- 
-  
-  
-  
-  
+
+
+
+
+var rain = '🌧';
+var sun = '☀️';
+var cloud = '🌥';
+var snow = '🌨';
+
+function weather(state) {
+        var url = 'https://api.openweathermap.org/data/2.5/weather?q='+state+ '&appid=c24b1e69b12182932011de7f1b2d7c83';
+        fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        generalInfo(data);
+        });
+
+};
+
+function generalInfo(data) {
+        var temp = Math.round(data.main.temp-273.15);
+        var tempF = Math.round((data.main.temp-273.15)*1.8 + 32);
+        $('.name').text(data.name);
+        $('.temp').text("Temperature: " + temp + "\xB0C/ " + tempF + "\xB0F");
+        var rex = data.weather[0].description.toString().split(' ');
+        if (rex.includes('rain')) {
+            $('.condition').text(data.weather[0].description + rain);
+        } else if (rex.includes('clear')) {
+            $('.condition').text(data.weather[0].description + sun);
+        } else if (rex.includes('snow')) {
+            $('.condition').text(data.weather[0].description + snow);
+        } else if (rex.includes('clouds')) {
+            $('.condition').text(data.weather[0].description + cloud);
+        } else {
+            $('.condition').text(data.weather[0].description)
+        };
+};
