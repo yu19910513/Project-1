@@ -5,11 +5,6 @@ function removeAllChildNodes(parent) {
   }
 }
 
-// function onChange() {
-// localStorage.setItem('item', $('.selector').val());
-// window.location.href = 'page2.html';
-// };
-
 input();
 
 function input (){
@@ -35,7 +30,7 @@ function input (){
         })
 
     // DC - This is also the logical place to fetch the images from pixabay.com/api ...
-    const url2 = `https://pixabay.com/api?q=${country}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
+    const url2 = `https://pixabay.com/api?q=${state}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
 
     fetch(url2)
       .then(function (response) {
@@ -48,7 +43,7 @@ function input (){
           for (let i = 0; i < data.hits.length; i++) {
             const imgEl = document.createElement('img');
             imgEl.setAttribute('src', data.hits[i].webformatURL);
-            imgEl.setAttribute('alt', `State of ${country} picture`);
+            imgEl.setAttribute('alt', `State of ${state} picture`);
             imgEl.setAttribute('uk-cover', '');
             const listItemEl = document.createElement('li');
             listItemEl.appendChild(imgEl);
@@ -57,7 +52,6 @@ function input (){
         }
       });
 }
-
 
         $('.eventBtn').on("click", function(event) {
             var stateSelected = event.target.value;
@@ -71,6 +65,12 @@ function input (){
           console.log(event.target.text);
           localStorage.setItem('item', stateSelected)
         });
+
+        
+        $('.gobackbtn').on("click", function() {
+          window.location.href = 'index.html';
+      })
+        
 
         // Trying out SVG https://www.amcharts.com/docs/v4/
       
