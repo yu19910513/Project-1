@@ -28,9 +28,10 @@ function input (){
 }
 
 
-        $('.eventBtn').on("click", function() {
-            localStorage.setItem('item', $(this).val())
-            console.log($(this).val());
+        $('.eventBtn').on("click", function(event) {
+            var stateSelected = event.target.value;
+            console.log(event.target.text);
+            localStorage.setItem('item', stateSelected)
             window.location.href = 'page2.html';
         })
 
@@ -40,31 +41,31 @@ function input (){
           localStorage.setItem('item', stateSelected)
         });
 
-        // Trying out SVG
+        // Trying out SVG https://www.amcharts.com/docs/v4/
       
         // Create map instance
-        var chart = am4core.create("chartdiv", am4maps.MapChart);
+        // var chart = am4core.create("chartdiv", am4maps.MapChart);
 
-        // Set map definition
-        chart.geodata = am4geodata_usaLow;
+        // // Set map definition
+        // chart.geodata = am4geodata_usaLow;
 
-        // Set projection
-        chart.projection = new am4maps.projections.AlbersUsa();
+        // // Set projection
+        // chart.projection = new am4maps.projections.AlbersUsa();
 
-        // Series for World map
-        var series1 = chart.series.push(new am4maps.MapPolygonSeries());
-        series1.name = "United States";
-        series1.useGeodata = true;
+        // // Series for World map
+        // var series1 = chart.series.push(new am4maps.MapPolygonSeries());
+        // series1.name = "United States";
+        // series1.useGeodata = true;
 
-        var series1Template = series1.mapPolygons.template;
-        series1Template.tooltipText = "{name}";
-        series1Template.fill = am4core.color("#74B266");
-        series1Template.propertyFields.disabled = "disabled";
+        // var series1Template = series1.mapPolygons.template;
+        // series1Template.tooltipText = "{name}";
+        // series1Template.fill = am4core.color("#74B266");
+        // series1Template.propertyFields.disabled = "disabled";
 
-        var hs = series1Template.states.create("hover");
-        hs.properties.fill = am4core.color("#367B25");
+        // var hs = series1Template.states.create("hover");
+        // hs.properties.fill = am4core.color("#367B25");
 
-        // Add zoom control
-        chart.zoomControl = new am4maps.ZoomControl();
+        // // Add zoom control
+        // chart.zoomControl = new am4maps.ZoomControl();
 
 
