@@ -24,10 +24,9 @@
   min-width: 250px;
 }
 
-/* .headerBackground {
-  background-size: cover;
-  background-position: center;
-} */
+.pixabayIcon {
+  height: 70px;
+}
 
 .container {
   padding-right: 0;
