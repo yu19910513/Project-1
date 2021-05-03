@@ -73,6 +73,11 @@ function input (){
           localStorage.setItem('item', stateSelected)
         });
 
+// DC - Want to implement the "Go Back" button
+document.getElementById('goBack').addEventListener('click', function() {
+  window.history.back();
+});
+
         // Trying out SVG https://www.amcharts.com/docs/v4/
       
         // Create map instance
@@ -99,5 +104,3 @@ function input (){
 
         // // Add zoom control
         // chart.zoomControl = new am4maps.ZoomControl();
-
-
