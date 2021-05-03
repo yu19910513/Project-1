@@ -35,7 +35,6 @@ function input (){
         })
 
     // DC - This is also the logical place to fetch the images from pixabay.com/api ...
-    // DC - TODO: Add pixabay logo and link!
     const url2 = `https://pixabay.com/api?q=${state}%20State&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
 
     fetch(url2)
