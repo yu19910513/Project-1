@@ -5,10 +5,11 @@ function removeAllChildNodes(parent) {
   }
 }
 
+// description & history per state
 input();
 
 function input (){
-    var state = localStorage.getItem('item');
+    var state = localStorage.getItem('stateVisited');
     weather(state);
     url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+state+"&format=json&origin=*";
     fetch(url)
@@ -57,14 +58,14 @@ function input (){
         $('.eventBtn').on("click", function(event) {
             var stateSelected = event.target.value;
             console.log(event.target.text);
-            localStorage.setItem('item', stateSelected)
+            localStorage.setItem('stateVisited', stateSelected);
             window.location.href = 'page2.html';
         })
 
-        $('a').on("click", function(event) {
-          var stateSelected = event.target.text;
-          console.log(event.target.text);
-          localStorage.setItem('item', stateSelected)
+        $('.dropDown').on("click", function(event) {
+          var stateSelected = event.target.value;
+          console.log(event.target.value);
+          localStorage.setItem('stateVisited', stateSelected)
         });
 
 
@@ -75,11 +76,7 @@ function input (){
 // weather
 //event function
 
-var input = $('.input');
-var btn = $('.search');
-var btnCity = $('.searchCity')
-var select = $('.selector');
-var inputCity = $('.inputCity')
+
 var rain = '🌧';
 var sun = '☀️';
 var cloud = '🌥';
@@ -115,6 +112,41 @@ function generalInfo(data) {
             $('.condition').text(data.weather[0].description)
         };
 };
+
+//time
+var cityArray = ['America/New_York', 'America/Los_Angeles', 'America/Phoenix', 'America/Boise', 'America/Kentucky/Louisville', 'America/Anchorage', 'Pacific/Honolulu']
+var cT = ["Alabama","Illinois" , "Iowa","Minnesota","Mississippi" ,"Oklahoma" ,"Texas" ,"Missouri" ,"South Dakota" , "Wisconsin" ,"Kansas","Kentucky","Louisiana","Nebraska","North Dakota"];
+var mT = ["Colorado" ,"Idaho","Montana", "Nevada",  "Wyoming" ,"New Mexico" ,"Utah" ,];
+var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)","Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina",]
+var pST = ["California","Oregon" , "Washington (state)" ]
+function time(){
+  var d = new Date();
+  for (let j = 0; j < cT.length; j++) {
+  for (let k = 0; k < mT.length; k++) {
+  for (let l = 0; l < eT.length; l++) {
+  for (let p = 0; p < pST.length; p++) {
+  if (localStorage.getItem('stateVisited') === 'Arizona' ){
+  $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[2] }))}
+  if (localStorage.getItem('stateVisited') === cT[j]){
+  $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[4] }))}
+  if (localStorage.getItem('stateVisited') === mT[k]){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[3] }))}
+  if (localStorage.getItem('stateVisited') === eT[l]){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[0] }))}
+  if (localStorage.getItem('stateVisited') === pST[p]){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[1] }))}
+  if(localStorage.getItem('stateVisited') === 'Hawaii'){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[6] }))}
+ if (localStorage.getItem('stateVisited') === 'Alaska'){
+    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[5] }))}
+  }
+  }
+  }
+  }
+
+};
+
+setInterval(time, 1000);
 
         // Trying out SVG https://www.amcharts.com/docs/v4/
 
