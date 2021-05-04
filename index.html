@@ -23,9 +23,9 @@
 
 <div class="container">
     <section class="dropdown uk-inline uk-width-1-1 uk-flex">
-            <p class="uk-width-4-5 uk-position-center-left">Pick a state from the list to learn more or you can also pick your favorite flag below.</p>
-            <button class="uk-button uk-button-secondary uk-position-center-right uk-width-auto state-dropdown" type="button"><i class="fas fa-chevron-down"></i></button>
-            <!-- for the dropdown, have it a set height and allow for a scroll. Also, maybe have a list of the letter from the alphabet, that expand when clicked, and the states for that letter are shown/clickable -->
+            <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+            <p class="uk-inline">Pick a state from the list to learn more or you can also pick your favorite flag below.</p>
+            <button class="uk-button uk-button-secondary state-dropdown uk-flex-last" type="button"><i class="fas fa-chevron-down"></i></button>
             <div uk-dropdown="pos: bottom-justify" class="uk-overflow-auto uk-height-small" mode="click" >
                 <ul class="uk-nav uk-dropdown-nav dropDown" id="selector">
                     <li><a value="Alabama" href="page2.html">Alabama </a></li>
@@ -122,7 +122,7 @@
             </div>
             <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
                 <div class="uk-grid-column-small uk-grid-row-small uk-child-width-1-3@s
-                    uk-child-width-1-5@m uk-child-width-1-8@l uk-text-center state-buttons" uk-grid>
+                uk-child-width-1-5@m uk-child-width-1-8@l uk-text-center state-buttons" uk-grid>
                     <button value="Montana"id="montana" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Montana</button>
                     <button value="Nebraska" id="nebraska" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Nebraska</button>
                     <button value="Nevada" id="nevada" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Nevada</button>
@@ -156,20 +156,20 @@
         </div>
     </div>
     <div>
-        <p uk-margin>
-            <button class="uk-button uk-button-secondary uk-margin-small-right footerbtn" type="button" uk-toggle="target: #modal-close-default">Passport</button>
-            <button class="uk-button uk-button-secondary uk-margin-small-right footerbtn"><a href="#modal-media-youtube" uk-toggle>Fifty Nifty United States Song</a></button>
+        <p uk-margin class="footer uk-flex uk-flex-column">
+            <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Passport</button>
+            <button class="uk-button uk-button-secondary uk-margin-small-right"><a href="#modal-media-youtube" class="" uk-toggle>Fifty Nifty United States Song</a></button>
         </p>
         <div id="modal-close-default" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
-                <button class="uk-modal-close-default uk-button-secondary footerbtn" type="button" uk-close></button>
+                <button class="uk-modal-close-default uk-button-secondary" type="button" uk-close></button>
                 <h2 class="uk-modal-title">Passport</h2>
                 <p class="passport">Here is a list of all the states that you've visited. </p>
             </div>
         </div>
         <div id="modal-media-youtube" class="uk-flex-top" uk-modal>
             <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
-                <button class="uk-modal-close-outside footerbtn" type="button" uk-close></button>
+                <button class="uk-modal-close-outside" type="button" uk-close></button>
                 <iframe src="https://www.youtube.com/embed/27D7yuBMItM" title="YouTube video player" width="1920" height="1080" frameborder="0" uk-video uk-responsive></iframe>
             </div>
         </div>

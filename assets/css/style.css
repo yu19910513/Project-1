@@ -37,6 +37,23 @@ p {
     color: black;
 }
 
+.footer button{
+    color: white;
+    background-color: black;
+    font-size: 1em;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+.footer a{
+    color: white;
+}
+.footer button:hover{
+    color: white;
+    background-color: black;
+    font-family: 'Cabin Sketch', cursive;
+    border: thick dashed yellow;
+}
+
 button:hover {
     font-family: 'Cabin Sketch', cursive;
     font-size: 2em;
@@ -44,10 +61,12 @@ button:hover {
 }
 
 .dropdown {
-    height: 100px;
+    color: white;
+    background-color: black;
+    font-family: 'Cabin Sketch', cursive;
 }
 
-#state-dropdown {
+.state-dropdown {
     font-family: 'Cabin Sketch', cursive;
     font-size: 1em;
     background-color: black;
@@ -55,7 +74,7 @@ button:hover {
     color: white;
 }
 
-#state-dropdown:hover {
+.state-dropdown:hover {
     border: thick dashed yellow;
 }
 
