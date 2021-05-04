@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css"/>
+    <script src="https://kit.fontawesome.com/aaf43dd7fc.js" crossorigin="anonymous"></script>
     <title>Kid's Corner</title>
 </head>
 <body>
@@ -21,10 +22,10 @@
 </div>
 
 <div class="container">
-    <section class="dropdown uk-inline uk-width-1-1">
-            <p class="instructions">Pick a state from the list to learn more or you can also pick your favorite flag below.</p>
-            <button id="state-dropdown" class="uk-button uk-button-secondary uk-position-center uk-width-1-1" type="button">List of the Fifty States</button>
-            <!-- for the dropdown, have it a set height and allow for a scroll. Also, maybe have a list of the letter from the alphabet, that expand when clicked, and the states for that letter are shown/clickable -->
+    <section class="dropdown uk-inline uk-width-1-1 uk-flex">
+            <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+            <p class="uk-inline">Pick a state from the list to learn more or you can also pick your favorite flag below.</p>
+            <button class="uk-button uk-button-secondary state-dropdown uk-flex-last" type="button"><i class="fas fa-chevron-down"></i></button>
             <div uk-dropdown="pos: bottom-justify" class="uk-overflow-auto uk-height-small" mode="click" >
                 <ul class="uk-nav uk-dropdown-nav dropDown" id="selector">
                     <li><a value="Alabama" href="page2.html">Alabama </a></li>
@@ -91,7 +92,7 @@
 
                 <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
                 <div class="uk-grid-column-small uk-grid-row-small uk-child-width-1-3@s
-                uk-child-width-1-5@m uk-child-width-1-8@l uk-text-center" uk-grid>
+                uk-child-width-1-5@m uk-child-width-1-8@l uk-text-center state-buttons" uk-grid>
                     <button value="Alabama" id="alabama" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Alabama</button>
                     <button value="Alaska" id="alaska" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Alaska</button>
                     <button value="Arizona" id="arizona" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Arizona</button>
@@ -121,7 +122,7 @@
             </div>
             <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
                 <div class="uk-grid-column-small uk-grid-row-small uk-child-width-1-3@s
-                    uk-child-width-1-5@m uk-child-width-1-8@l uk-text-center" uk-grid>
+                uk-child-width-1-5@m uk-child-width-1-8@l uk-text-center state-buttons" uk-grid>
                     <button value="Montana"id="montana" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Montana</button>
                     <button value="Nebraska" id="nebraska" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Nebraska</button>
                     <button value="Nevada" id="nevada" class="uk-button uk-button-secondary uk-card uk-card-default uk-card-body">Nevada</button>
@@ -154,18 +155,25 @@
         <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
         </div>
     </div>
-
-    <!-- add the search history into a modal with the message to start the learning activity -->
-
-    <section">
-        <div id="ex1" class="modal">
-            <ul class="america">
-            </ul>
-            <a href="#" rel="modal:close">Close</a>
+    <div>
+        <p uk-margin class="footer uk-flex uk-flex-column">
+            <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Passport</button>
+            <button class="uk-button uk-button-secondary uk-margin-small-right"><a href="#modal-media-youtube" class="" uk-toggle>Fifty Nifty United States Song</a></button>
+        </p>
+        <div id="modal-close-default" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <button class="uk-modal-close-default uk-button-secondary" type="button" uk-close></button>
+                <h2 class="uk-modal-title">Passport</h2>
+                <p class="passport">Here is a list of all the states that you've visited. </p>
+            </div>
         </div>
-        <a href="#ex1" rel="modal:open" class="btn">Search History</a>
-
-    </section>
+        <div id="modal-media-youtube" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button>
+                <iframe src="https://www.youtube.com/embed/27D7yuBMItM" title="YouTube video player" width="1920" height="1080" frameborder="0" uk-video uk-responsive></iframe>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

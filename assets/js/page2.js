@@ -303,11 +303,6 @@ $('.gobackbtn').on("click", function() {
     }
     // weather data for page 2
 
-var input = $('.input');
-var btn = $('.search');
-var btnCity = $('.searchCity')
-var select = $('.selector');
-var inputCity = $('.inputCity')
 var rain = '🌧';
 var sun = '☀️';
 var cloud = '🌥';
@@ -315,7 +310,7 @@ var snow = '🌨';
 
 
 
-function weather(capitalName) {
+function weather() {
         var url = 'https://api.openweathermap.org/data/2.5/weather?q='+capitalName+ '&appid=c24b1e69b12182932011de7f1b2d7c83';
         fetch(url)
         .then(function (response) {
