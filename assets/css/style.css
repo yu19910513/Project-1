@@ -59,10 +59,7 @@ button {
     background-image: none;
     color: white;
 }
-/*
-#alabama::after {
-    content: "hello";
-} */
+
 #alabama {
     background-image: url("/assets/images/alabama-flag-small.png");
     background-size: contain;
