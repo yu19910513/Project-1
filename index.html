@@ -156,14 +156,16 @@
     </div>
     <div>
         <p uk-margin class="footer uk-flex uk-flex-column">
-            <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" uk-toggle="target: #modal-close-default">Passport</button>
+            <button class="uk-button uk-button-secondary uk-margin-small-right displaySearchHistory" type="button" uk-toggle="target: #modal-close-default">Passport</button>
             <button class="uk-button uk-button-secondary uk-margin-small-right"><a href="#modal-media-youtube" class="" uk-toggle>Fifty Nifty United States Song</a></button>
         </p>
         <div id="modal-close-default" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
-                <button class="uk-modal-close-default uk-button-secondary" type="button" uk-close></button>
+                <button class="uk-modal-close-default uk-button-default" type="button" uk-close></button>
                 <h2 class="uk-modal-title">Passport</h2>
                 <p class="passport">Here is a list of all the states that you've visited. </p>
+                <ul id="searchHistory">
+                </ul>
             </div>
         </div>
         <div id="modal-media-youtube" class="uk-flex-top" uk-modal>
