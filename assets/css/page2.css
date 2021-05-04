@@ -25,31 +25,13 @@
 }
 
 .pixabayIcon {
-  height: 70px;
+  height: 2rem;
 }
 
 .container {
   padding-right: 0;
 }
 
-/* Red
-  (Hex: #FF0000)
-  (RGB: 255, 0, 0)
-  Orange
-  (color wheel Orange)
-  (Hex: #FF7F00)
-  (RGB: 255, 127, 0)
-  Yellow
-  (web color)
-  (Hex: #FFFF00)
-  (RGB: 255, 255, 0)
-  Green
-  (X11)
-  (Electric Green)
-  (HTML/CSS “Lime”)
-  (Color wheel green)
-  (Hex: #00ff00)
-  (RGB: 0, 255, 0) */
 .custom-bg-color1 {
   background-color: #c04242;
 }
