@@ -345,8 +345,8 @@ function generalInfo(data) {
 var cityArray = ['America/New_York', 'America/Los_Angeles', 'America/Phoenix', 'America/Boise', 'America/Kentucky/Louisville', 'America/Anchorage', 'Pacific/Honolulu']
 var cT = ["Alabama","Illinois" , "Iowa","Minnesota","Mississippi" ,"Oklahoma" ,"Texas" ,"Missouri" ,"South Dakota" , "Wisconsin" ,"Kansas","Kentucky","Louisiana","Nebraska","North Dakota"];
 var mT = ["Colorado" ,"Idaho","Montana", "Nevada",  "Wyoming" ,"New Mexico" ,"Utah" ,];
-var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)","Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina",]
-var pST = ["California","Oregon" , "Washington (state)" ]
+var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)", "Georgia", "Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina",]
+var pST = ["California","Oregon" , "Washington (state)", "Washington" ]
 function time(){
   var d = new Date();
   for (let j = 0; j < cT.length; j++) {
@@ -486,5 +486,9 @@ var stateArray = [
 for (let a = 0; a < stateArray.length; a++) {
 if (localStorage.getItem('stateVisited') == stateArray[a]) {
 $('.flagImage').attr('data-src',flagArray[a]);
+}else if(localStorage.getItem('stateVisited') == 'Washington'){
+  $('.flagImage').attr('data-src',flagArray[46]);
+} else if(localStorage.getItem('stateVisited') == 'Georgia'){
+  $('.flagImage').attr('data-src',flagArray[9])
 }
 }
