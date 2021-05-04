@@ -62,57 +62,69 @@ $('.gobackbtn').on("click", function() {
     }
 
     function getStateSummary(){
-      var array = ['Washington', 'Georgia'];
-      var correctArray = ['Washington (state)', 'Georgia (U.S. state)'];
-      for (let i = 0; i < array.length; i++) {
-        if(stateName == array[i]){
-          var stateName2 = correctArray[i]
-          url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+stateName2+"&format=json&origin=*";
+      var stateName = localStorage.getItem('stateVisited');
+      if (stateName == 'Washington'){
+      url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Washington(state)&format=json&origin=*";
+      fetch(url)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        var title = data.query.search[0].title;
+        var pageId = data.query.search[0].pageid;
+        fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
 
-        // this fetch pulls in the data for the title (i.e. state name) and the general information about the state and displays it on page 2.
-        fetch(url)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-              console.log(data);
-              var title = data.query.search[0].title;
-              var pageId = data.query.search[0].pageid;
-              fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
+        .then(function (responseAgain) {
+          return responseAgain.json();
+        })
+        .then(function (dataAgain) {
+          $('.info').append(dataAgain.query.pages[pageId].extract);
+          $('.header').text(title)
+        })
+      })} else if (stateName == 'Georgia') {
+        url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Georgia(U.S.state)&format=json&origin=*";
+      fetch(url)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        var title = data.query.search[0].title;
+        var pageId = data.query.search[0].pageid;
+        fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
 
-              .then(function (responseAgain) {
-                return responseAgain.json();
-              })
-              .then(function (dataAgain) {
-                $('.info').append(dataAgain.query.pages[pageId].extract);
-                $('.header').text(title)
-              })
-            })
-          return;
-        } if (stateName !== array[i]) {
-          url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+stateName+"&format=json&origin=*";
-          fetch(url)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-              var title = data.query.search[0].title;
-              var pageId = data.query.search[0].pageid;
-              fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
+        .then(function (responseAgain) {
+          return responseAgain.json();
+        })
+        .then(function (dataAgain) {
+          $('.info').append(dataAgain.query.pages[pageId].extract);
+          $('.header').text(title)
+        })
+      })} else {
+      url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+stateName+"&format=json&origin=*";
+      fetch(url)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        var title = data.query.search[0].title;
+        var pageId = data.query.search[0].pageid;
+        fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
 
-              .then(function (responseAgain) {
-                return responseAgain.json();
-              })
-              .then(function (dataAgain) {
-                $('.info').append(dataAgain.query.pages[pageId].extract);
-                $('.header').text(title)
-              })
-            })
-          return;
-        }
-      }
-    };
-    
+        .then(function (responseAgain) {
+          return responseAgain.json();
+        })
+        .then(function (dataAgain) {
+          $('.info').append(dataAgain.query.pages[pageId].extract);
+          $('.header').text(title)
+        })
+      })
+    }
+
+    // this fetch pulls in the data for the title (i.e. state name) and the general information about the state and displays it on page 2.
+
 
     function getStateImages (){
       // set the next URL based on the state selected on the first page.
