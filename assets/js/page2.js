@@ -89,7 +89,6 @@ $('.gobackbtn').on("click", function() {
           return response.json();
       })
       .then(function (data) {
-        console.log(data);
         var title = data.query.search[0].title;
         var pageId = data.query.search[0].pageid;
         fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
@@ -108,7 +107,6 @@ $('.gobackbtn').on("click", function() {
           return response.json();
       })
       .then(function (data) {
-        console.log(data);
         var title = data.query.search[0].title;
         var pageId = data.query.search[0].pageid;
         fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
@@ -312,8 +310,9 @@ $('.gobackbtn').on("click", function() {
             if (rows[i].cells[0].textContent.trim() === stateName)
               capitalName = rows[i].cells[1].textContent;
               stateCapitalEl.textContent = capitalName;
-              weather(capitalName);
             }
+            weather(capitalName);
+            getTimeZone(capitalName);
           })
     };
 
@@ -367,6 +366,8 @@ function weather() {
 
 };
 
+
+
 function generalInfo(data) {
         var temp = Math.round(data.main.temp-273.15);
         var tempF = Math.round((data.main.temp-273.15)*1.8 + 32);
@@ -387,40 +388,88 @@ function generalInfo(data) {
 };
 
 //time
-var cityArray = ['America/New_York', 'America/Los_Angeles', 'America/Phoenix', 'America/Boise', 'America/Kentucky/Louisville', 'America/Anchorage', 'Pacific/Honolulu']
-var cT = ["Alabama","Illinois" , "Iowa","Minnesota","Mississippi" ,"Oklahoma" ,"Texas" ,"Missouri" ,"South Dakota" , "Wisconsin" ,"Kansas","Kentucky","Louisiana","Nebraska","North Dakota"];
-var mT = ["Colorado" ,"Idaho","Montana", "Nevada",  "Wyoming" ,"New Mexico" ,"Utah" ];
-var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)", "Georgia", "Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina"]
-var pST = ["California","Oregon" , "Washington (state)", "Washington" ]
 
-function time(){
-  var d = new Date();
-  for (let j = 0; j < cT.length; j++) {
-  for (let k = 0; k < mT.length; k++) {
-  for (let l = 0; l < eT.length; l++) {
-  for (let p = 0; p < pST.length; p++) {
-  if (localStorage.getItem('stateVisited') === 'Arizona' ){
-  $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[2] }))}
-  if (localStorage.getItem('stateVisited') === cT[j]){
-  $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[4] }))}
-  if (localStorage.getItem('stateVisited') === mT[k]){
-    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[3] }))}
-  if (localStorage.getItem('stateVisited') === eT[l]){
-    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[0] }))}
-  if (localStorage.getItem('stateVisited') === pST[p]){
-    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[1] }))}
-  if(localStorage.getItem('stateVisited') === 'Hawaii'){
-    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[6] }))}
- if (localStorage.getItem('stateVisited') === 'Alaska'){
-    $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[5] }))}
-  }
-  }
-  }
-  }
+function getTimeZone(capitalName) {
+  var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + capitalName + '&appid=c24b1e69b12182932011de7f1b2d7c83';
+  fetch(url)
+  .then(function (response) {
+      return response.json();
+  })
+  .then(function (data) {
+  generalInfo(data);
+  console.log(data);
+  var timeZone = data.timezone;
+  console.log(timeZone);
+  getTime(timeZone);
+  });
+}
 
+function getTime (timeZone){
+  if (timeZone == "-18000"){
+    var utc = -5 //"America/Chicago/central daylight"
+    var currentTime = moment().utcOffset(utc).format('MMMM Do YYYY, h:mm a')
+    $('.currenttime').text(currentTime);
+  } 
+    if(timeZone == "-21600"){
+      var utc = -6 //"America/Denver/mountain daylight
+      var currentTime = moment().utcOffset(utc).format('MMMM Do YYYY, h:mm a')
+      $('.currenttime').text(currentTime);
+  }  
+    if(timeZone == "-25200"){
+      var utc = -7 //"America/Los_Angeles/pacific daylight
+      var currentTime = moment().utcOffset(utc).format('MMMM Do YYYY, h:mm a')
+      $('.currenttime').text(currentTime);
+  } 
+    if(timeZone == "-14400"){
+      var utc = -4 //"America/New_York/eastern daylight
+      var currentTime = moment().utcOffset(utc).format('MMMM Do YYYY, h:mm a')
+      $('.currenttime').text(currentTime);
+  } 
+    if(timeZone == "-36000"){
+      var utc = -10 //Pacific/Honolulu/standard
+      var currentTime = moment().utcOffset(utc).format('MMMM Do YYYY, h:mm a')
+      $('.currenttime').text(currentTime);
+  } 
+    if(timeZone == "-28800"){
+      var utc = -8 //America/Anchorage/alaska daylight
+      var currentTime = moment().utcOffset(utc).format('MMMM Do YYYY, h:mm a')
+      $('.currenttime').text(currentTime);
+  }
 };
 
-setInterval(time, 1000);
+// var cityArray = ['America/New_York', 'America/Los_Angeles', 'America/Phoenix', 'America/Boise', 'America/Kentucky/Louisville', 'America/Anchorage', 'Pacific/Honolulu']
+// var cT = ["Alabama","Illinois" , "Iowa","Minnesota","Mississippi" ,"Oklahoma" ,"Texas" ,"Missouri" ,"South Dakota" , "Wisconsin" ,"Kansas","Kentucky","Louisiana","Nebraska","North Dakota"];
+// var mT = ["Colorado" ,"Idaho","Montana", "Nevada",  "Wyoming" ,"New Mexico" ,"Utah" ];
+// var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)", "Georgia", "Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina"]
+// var pST = ["California","Oregon" , "Washington (state)", "Washington" ]
+
+// function time(){
+//   var d = new Date();
+//   for (let j = 0; j < cT.length; j++) {
+//   for (let k = 0; k < mT.length; k++) {
+//   for (let l = 0; l < eT.length; l++) {
+//   for (let p = 0; p < pST.length; p++) {
+//   if (localStorage.getItem('stateVisited') === 'Arizona' ){
+//   $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[2] }))}
+//   if (localStorage.getItem('stateVisited') === cT[j]){
+//   $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[4] }))}
+//   if (localStorage.getItem('stateVisited') === mT[k]){
+//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[3] }))}
+//   if (localStorage.getItem('stateVisited') === eT[l]){
+//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[0] }))}
+//   if (localStorage.getItem('stateVisited') === pST[p]){
+//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[1] }))}
+//   if(localStorage.getItem('stateVisited') === 'Hawaii'){
+//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[6] }))}
+//  if (localStorage.getItem('stateVisited') === 'Alaska'){
+//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[5] }))}
+//   }
+//   }
+//   }
+//   }
+// };
+
+// setInterval(time, 1000);
 
 
 
