@@ -79,6 +79,7 @@ $('.gobackbtn').on("click", function() {
           return responseAgain.json();
         })
         .then(function (dataAgain) {
+          $('.flagImage').attr('data-src',dataAgain.query.pages[pageId].thumbnail.source);
           $('.info').append(dataAgain.query.pages[pageId].extract);
           $('.header').text(title)
         })
@@ -578,3 +579,9 @@ var stateArray =
 "Wisconsin",
 "Wyoming"
 ];
+
+for (let a = 0; a < stateArray.length; a++) {
+  if (localStorage.getItem('stateVisited') == stateArray[a]) {
+  $('.flagImage').attr('data-src',flagArray[a]);
+  }
+  }
