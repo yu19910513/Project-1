@@ -44,7 +44,7 @@ $('.gobackbtn').on("click", function() {
     function startCollectingData() {
       stateName = localStorage.getItem("stateVisited");
       getInfo(stateName, symbols[index]);
-    }
+    };
 
 
     function getInfo() {
@@ -59,7 +59,7 @@ $('.gobackbtn').on("click", function() {
       getStateSummary(stateName);
       getStateImages (stateName);
 
-    }
+    };
 
     function getStateSummary(){
       var stateName = localStorage.getItem('stateVisited');
@@ -122,6 +122,7 @@ $('.gobackbtn').on("click", function() {
         })
       })
     }
+    };
 
     // this fetch pulls in the data for the title (i.e. state name) and the general information about the state and displays it on page 2.
 
@@ -157,7 +158,7 @@ $('.gobackbtn').on("click", function() {
       while (parent.firstChild) {
           parent.removeChild(parent.firstChild);
       }
-    }
+    };
 
 
 
@@ -184,7 +185,7 @@ $('.gobackbtn').on("click", function() {
             }
           }
         });
-    }
+    };
 
     function getStateButterfly(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
@@ -208,7 +209,7 @@ $('.gobackbtn').on("click", function() {
             }
           }
         });
-    }
+    };
 
     function getStateBird(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
@@ -232,7 +233,7 @@ $('.gobackbtn').on("click", function() {
             }
           }
         });
-    }
+    };
 
     function getStateMammal(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
@@ -264,7 +265,7 @@ $('.gobackbtn').on("click", function() {
             }
           }
         });
-    }
+    };
 
     function getStateTree(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
@@ -288,7 +289,7 @@ $('.gobackbtn').on("click", function() {
             }
           }
         });
-    }
+    };
 
     function getStateCapital(stateName, fact) {
       fetch(
@@ -314,7 +315,7 @@ $('.gobackbtn').on("click", function() {
               weather(capitalName);
             }
           })
-        };
+    };
 
     function getStateNickName(stateName, fact) {
       fetch(
@@ -343,8 +344,9 @@ $('.gobackbtn').on("click", function() {
             }
           }
         });
-    }
-    // weather data for page 2
+    };
+
+// weather data for page 2
 
 var rain = '🌧';
 var sun = '☀️';
@@ -387,9 +389,10 @@ function generalInfo(data) {
 //time
 var cityArray = ['America/New_York', 'America/Los_Angeles', 'America/Phoenix', 'America/Boise', 'America/Kentucky/Louisville', 'America/Anchorage', 'Pacific/Honolulu']
 var cT = ["Alabama","Illinois" , "Iowa","Minnesota","Mississippi" ,"Oklahoma" ,"Texas" ,"Missouri" ,"South Dakota" , "Wisconsin" ,"Kansas","Kentucky","Louisiana","Nebraska","North Dakota"];
-var mT = ["Colorado" ,"Idaho","Montana", "Nevada",  "Wyoming" ,"New Mexico" ,"Utah" ,];
-var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)", "Georgia", "Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina",]
+var mT = ["Colorado" ,"Idaho","Montana", "Nevada",  "Wyoming" ,"New Mexico" ,"Utah" ];
+var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)", "Georgia", "Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina"]
 var pST = ["California","Oregon" , "Washington (state)", "Washington" ]
+
 function time(){
   var d = new Date();
   for (let j = 0; j < cT.length; j++) {
@@ -471,10 +474,11 @@ var flagArray =
 "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Flag_of_Washington.svg/2560px-Flag_of_Washington.svg.png",
 "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Flag_of_West_Virginia.svg/2880px-Flag_of_West_Virginia.svg.png",
 "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Flag_of_Wisconsin.svg/2560px-Flag_of_Wisconsin.svg.png",
-"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Wyoming.svg/2560px-Flag_of_Wyoming.svg.png" ]
+"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Wyoming.svg/2560px-Flag_of_Wyoming.svg.png"
+];
 
-var stateArray = [
-"Alabama",
+var stateArray = 
+["Alabama",
 "Alaska",
 "Arizona",
 "Arkansas",
@@ -524,14 +528,4 @@ var stateArray = [
 "West Virginia",
 "Wisconsin",
 "Wyoming"
-]
-
-for (let a = 0; a < stateArray.length; a++) {
-if (localStorage.getItem('stateVisited') == stateArray[a]) {
-$('.flagImage').attr('data-src',flagArray[a]);
-}else if(localStorage.getItem('stateVisited') == 'Washington'){
-  $('.flagImage').attr('data-src',flagArray[46]);
-} else if(localStorage.getItem('stateVisited') == 'Georgia'){
-  $('.flagImage').attr('data-src',flagArray[9])
-}
-}
+];
