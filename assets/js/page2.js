@@ -2,7 +2,7 @@
 $('.gobackbtn').on("click", function() {
       window.location.href = 'index.html';
     })
-    
+
     //Variables for page 2
     var stateName = '';
     var flowerName;
@@ -24,7 +24,7 @@ $('.gobackbtn').on("click", function() {
     var stateMammalEl = document.querySelector(".state-mammal");
     var stateTreeEl = document.querySelector(".state-tree");
     var stateNickNameEl = document.querySelector(".state-nickname");
-    
+
     var symbols = [
       "List_of_U.S._state_and_territory_flowers",
       "List_of_U.S._state_insects",
@@ -34,18 +34,18 @@ $('.gobackbtn').on("click", function() {
       "List_of_capitals_in_the_United_States",
       "List_of_U.S._state_and_territory_nicknames",
     ];
-    
+
     // Calling functions to run on page load
     getInfo();
-    
+
     // Functions for page 2 -
     function startCollectingData() {
       stateName = localStorage.getItem("stateVisited");
       console.log(stateName);
       getInfo(stateName, symbols[index]);
     }
-    
-    
+
+
     function getInfo() {
       var stateName = localStorage.getItem('stateVisited');
       getStateFlower(stateName, symbols[0]);
@@ -58,7 +58,7 @@ $('.gobackbtn').on("click", function() {
       getStateSummary(stateName);
       //can add donnas || mine getImage funtion and api key from here
     }
-    
+
     function getStateSummary(){
       stateName = localStorage.getItem("stateVisited");
     // this fetch pulls in the data for the title (i.e. state name) and the general information about the state and displays it on page 2.
@@ -71,20 +71,21 @@ $('.gobackbtn').on("click", function() {
             console.log(data);
             var title = data.query.search[0].title;
             var pageId = data.query.search[0].pageid;
-            fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles='+title+'&exintro=1&origin=*')
-    
+            fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
+
             .then(function (responseAgain) {
               return responseAgain.json();
             })
             .then(function (dataAgain) {
+              $('.flagImage').attr('data-src',dataAgain.query.pages[pageId].thumbnail.source);
               $('.info').append(dataAgain.query.pages[pageId].extract);
               $('.header').text(title)
             })
           })
-    
+
       // set the next URL based on the state selected on the first page.
       const url2 = `https://pixabay.com/api?q=${stateName}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
-    
+
       // this fetch pulls in images from pixabay.com/api.
       fetch(url2)
         .then(function (response) {
@@ -106,16 +107,16 @@ $('.gobackbtn').on("click", function() {
           }
         });
     }
-    
+
     // DC - https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
     function removeAllChildNodes(parent) {
       while (parent.firstChild) {
           parent.removeChild(parent.firstChild);
       }
     }
-    
-    
-    
+
+
+
     // // functions for fun facts on page 2
     function getStateFlower(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
@@ -141,7 +142,7 @@ $('.gobackbtn').on("click", function() {
           }
         });
     }
-    
+
     function getStateButterfly(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
         .then(function (response) {
@@ -165,7 +166,7 @@ $('.gobackbtn').on("click", function() {
           }
         });
     }
-    
+
     function getStateBird(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
         .then(function (response) {
@@ -189,7 +190,7 @@ $('.gobackbtn').on("click", function() {
           }
         });
     }
-    
+
     function getStateMammal(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
         .then(function (response) {
@@ -221,7 +222,7 @@ $('.gobackbtn').on("click", function() {
           }
         });
     }
-    
+
     function getStateTree(stateName, fact) {
       fetch(`http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`)
         .then(function (response) {
@@ -245,7 +246,7 @@ $('.gobackbtn').on("click", function() {
           }
         });
     }
-    
+
     function getStateCapital(stateName, fact) {
       fetch(
         `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -272,7 +273,7 @@ $('.gobackbtn').on("click", function() {
             }
           })
         };
-    
+
     function getStateNickName(stateName, fact) {
       fetch(
         `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -375,8 +376,3 @@ function time(){
 };
 
 setInterval(time, 1000);
-
-  
-
-      
-    
