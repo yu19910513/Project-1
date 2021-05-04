@@ -346,6 +346,7 @@ function weather() {
             return response.json();
         })
         .then(function (data) {
+          console.log(data);
         generalInfo(data);
         });
 
