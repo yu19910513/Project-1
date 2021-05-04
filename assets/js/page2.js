@@ -1,3 +1,5 @@
+//added in gunjan's cards; fixed the duplicated state info by adding in returns and breaking the picture function out into another; removed console.logs
+
 // Event listener for page 2 Go Back button
 $('.gobackbtn').on("click", function() {
       window.location.href = 'index.html';
@@ -36,12 +38,11 @@ $('.gobackbtn').on("click", function() {
     ];
 
     // Calling functions to run on page load
-    getInfo();
+    startCollectingData();
 
     // Functions for page 2 -
     function startCollectingData() {
       stateName = localStorage.getItem("stateVisited");
-      console.log(stateName);
       getInfo(stateName, symbols[index]);
     }
 
@@ -56,61 +57,64 @@ $('.gobackbtn').on("click", function() {
       getStateCapital(stateName, symbols[5]);
       getStateNickName(stateName, symbols[6]);
       getStateSummary(stateName);
-      //can add donnas || mine getImage funtion and api key from here
+      getStateImages (stateName);
+
     }
 
     function getStateSummary(){
-      var stateName = localStorage.getItem("stateVisited");
       var array = ['Washington', 'Georgia'];
       var correctArray = ['Washington (state)', 'Georgia (U.S. state)'];
       for (let i = 0; i < array.length; i++) {
         if(stateName == array[i]){
           var stateName2 = correctArray[i]
           url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+stateName2+"&format=json&origin=*";
-      fetch(url)
-          .then(function (response) {
-              return response.json();
-          })
-          .then(function (data) {
-            console.log(data);
-            var title = data.query.search[0].title;
-            var pageId = data.query.search[0].pageid;
-            fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
 
-            .then(function (responseAgain) {
-              return responseAgain.json();
+        // this fetch pulls in the data for the title (i.e. state name) and the general information about the state and displays it on page 2.
+        fetch(url)
+            .then(function (response) {
+                return response.json();
             })
-            .then(function (dataAgain) {
-              $('.info').append(dataAgain.query.pages[pageId].extract);
-              $('.header').text(title)
+            .then(function (data) {
+              console.log(data);
+              var title = data.query.search[0].title;
+              var pageId = data.query.search[0].pageid;
+              fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
+
+              .then(function (responseAgain) {
+                return responseAgain.json();
+              })
+              .then(function (dataAgain) {
+                $('.info').append(dataAgain.query.pages[pageId].extract);
+                $('.header').text(title)
+              })
             })
-          })
-        } else if (stateName !== array[i]) {
+          return;
+        } if (stateName !== array[i]) {
           url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+stateName+"&format=json&origin=*";
-      fetch(url)
-          .then(function (response) {
-              return response.json();
-          })
-          .then(function (data) {
-            console.log(data);
-            var title = data.query.search[0].title;
-            var pageId = data.query.search[0].pageid;
-            fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
+          fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+              var title = data.query.search[0].title;
+              var pageId = data.query.search[0].pageid;
+              fetch('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles='+title+'&exintro=1&origin=*')
 
-            .then(function (responseAgain) {
-              return responseAgain.json();
+              .then(function (responseAgain) {
+                return responseAgain.json();
+              })
+              .then(function (dataAgain) {
+                $('.info').append(dataAgain.query.pages[pageId].extract);
+                $('.header').text(title)
+              })
             })
-            .then(function (dataAgain) {
-              $('.info').append(dataAgain.query.pages[pageId].extract);
-              $('.header').text(title)
-            })
-          })
+          return;
         }
-
       }
-    // this fetch pulls in the data for the title (i.e. state name) and the general information about the state and displays it on page 2.
+    };
+    
 
-
+    function getStateImages (){
       // set the next URL based on the state selected on the first page.
       const url2 = `https://pixabay.com/api?q=${stateName}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
 
@@ -134,7 +138,7 @@ $('.gobackbtn').on("click", function() {
             }
           }
         });
-    }
+    };
 
     // DC - https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
     function removeAllChildNodes(parent) {
@@ -156,7 +160,6 @@ $('.gobackbtn').on("click", function() {
           }
         })
         .then(function (data) {
-          console.log(data);
           const parser = new DOMParser();
           const htmlString = data.parse.text["*"];
           const doc1 = parser.parseFromString(htmlString, "text/html");
@@ -291,7 +294,6 @@ $('.gobackbtn').on("click", function() {
           const htmlString = data.parse.text["*"];
           const doc1 = parser.parseFromString(htmlString, "text/html");
           var wikiEl = doc1.querySelector("body > div > table.wikitable.plainrowheaders.sortable");
-          console.log(wikiEl);
           var rows = wikiEl.querySelectorAll("tr");
           for (i = 1; i < rows.length; i++) {
             if (rows[i].cells[0].textContent.trim() === stateName)
@@ -340,13 +342,12 @@ var snow = '🌨';
 
 
 function weather() {
-        var url = 'https://api.openweathermap.org/data/2.5/weather?q='+capitalName+ '&appid=c24b1e69b12182932011de7f1b2d7c83';
+        var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + capitalName + '&appid=c24b1e69b12182932011de7f1b2d7c83';
         fetch(url)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-          console.log(data);
         generalInfo(data);
         });
 
@@ -356,7 +357,7 @@ function generalInfo(data) {
         var temp = Math.round(data.main.temp-273.15);
         var tempF = Math.round((data.main.temp-273.15)*1.8 + 32);
         $('.name').text(data.name);
-        $('.temp').text("Temperature: " + temp + "\xB0C/ " + tempF + "\xB0F");
+        $('.temp').text(temp + "\xB0C/ " + tempF + "\xB0F");
         var rex = data.weather[0].description.toString().split(' ');
         if (rex.includes('rain')) {
             $('.condition').text(data.weather[0].description + rain);
