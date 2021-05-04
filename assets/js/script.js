@@ -33,7 +33,6 @@ function removeAllChildNodes(parent) {
   
       // DC - This is also the logical place to fetch the images from pixabay.com/api ...
       const url2 = `https://pixabay.com/api?q=${state}%20State&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
-  =======
       var state = localStorage.getItem('stateVisited');
       weather(state);
       url = "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+state+"&format=json&origin=*";
