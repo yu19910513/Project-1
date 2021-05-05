@@ -192,6 +192,8 @@ function getStateFlower(stateName, fact) {
       for (i = 1; i < rows.length; i++) {
         if (rows[i].cells[0].textContent.trim() === stateName) {
           flowerName = rows[i].cells[1].textContent;
+          var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
+          flowerName = flowerName.replace(regex, "");
           stateFlowerEl.textContent = flowerName;
         }
       }
@@ -218,6 +220,8 @@ function getStateButterfly(stateName, fact) {
       for (i = 1; i < rows.length; i++) {
         if (rows[i].cells[0].textContent.trim() === stateName) {
           butterflyName = rows[i].cells[1].textContent;
+          var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
+          butterflyName = butterflyName.replace(regex, "");
           stateButterflyEl.textContent = butterflyName;
         }
       }
@@ -244,6 +248,8 @@ function getStateBird(stateName, fact) {
       for (i = 1; i < rows.length; i++) {
         if (rows[i].cells[0].textContent.trim() === stateName) {
           birdName = rows[i].cells[1].textContent;
+          var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))");
+          birdName = birdName.replace(regex, "");
           stateBirdEl.textContent = birdName;
         }
       }
@@ -278,6 +284,8 @@ function getStateMammal(stateName, fact) {
           } else {
             mammalName = "Dont have State Mammal";
           }
+          var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
+          mammalName = mammalName.replace(regex, "");
           stateMammalEl.textContent = mammalName;
         }
       }
@@ -304,6 +312,8 @@ function getStateTree(stateName, fact) {
       for (i = 1; i < rows.length; i++) {
         if (rows[i].cells[0].textContent.trim() === stateName) {
           treeName = rows[i].cells[1].textContent;
+          var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
+          treeName = treeName.replace(regex, "");
           stateTreeEl.textContent = treeName;
         }
       }
@@ -328,11 +338,14 @@ function getStateCapital(stateName, fact) {
       var wikiEl = doc1.querySelector(
         "body > div > table.wikitable.plainrowheaders.sortable"
       );
+      console.log(data);
       var rows = wikiEl.querySelectorAll("tr");
+      console.log(rows);
       for (i = 1; i < rows.length; i++) {
-        if (rows[i].cells[0].textContent.trim() === stateName)
+        if (rows[i].cells[0].textContent.trim() === stateName) {
           capitalName = rows[i].cells[1].textContent;
-        stateCapitalEl.textContent = capitalName;
+          stateCapitalEl.textContent = capitalName;
+        }
       }
       if (stateName == "Maine") {
         weatherZip();
@@ -387,8 +400,8 @@ function getStateNickName(stateName, fact) {
             }) > td:nth-child(2) > ul > li:nth-child(1)`
           );
           nickName = listItemOne.textContent;
-          var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))");
-          var nickName = nickName.replace(regex, "");
+          var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
+          nickName = nickName.replace(regex, "");
           stateNickNameEl.textContent = nickName;
           return;
         }
