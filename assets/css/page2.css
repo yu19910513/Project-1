@@ -23,13 +23,9 @@ body {
 }
 
 .gobackbtn:hover {
-background-image:none;
-background-color:#ff00ff;
-color: darkblue;
-}
-
-.header {
-  color: black;
+  background-image:none;
+  background-color:#ff00ff;
+  color: darkblue;
 }
 
 .funFont1 {
@@ -46,6 +42,9 @@ color: darkblue;
 .funFont3 {
   font-family: "Cabin Sketch", cursive, sans-serif;
   font-size: 8em;
+  color: black;
+}
+.funFont4 {
   color: black;
 }
 
