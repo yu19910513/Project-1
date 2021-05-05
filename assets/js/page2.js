@@ -358,23 +358,28 @@ function weather() {
 }
 
 function generalInfo(data) {
-        var temp = Math.round(data.main.temp - 273.15);
-        var tempF = Math.round((data.main.temp - 273.15) * 1.8 + 32);
-        $(".name").text(data.name);
-        $(".temp").text(temp + "\xB0C/ " + tempF + "\xB0F");
-        var rex = data.weather[0].description.toString().split(' ');
-        if (rex.includes('rain')) {
-            $('.condition').text(data.weather[0].description + rain);
-        } else if (rex.includes('clear')) {
-            $('.condition').text(data.weather[0].description + sun);
-        } else if (rex.includes('snow')) {
-            $('.condition').text(data.weather[0].description + snow);
-        } else if (rex.includes('clouds')) {
-            $('.condition').text(data.weather[0].description + cloud);
-        } else {
-            $('.condition').text(data.weather[0].description)
-        };
+  var temp = Math.round(data.main.temp - 273.15);
+  var tempF = Math.round((data.main.temp - 273.15) * 1.8 + 32);
+  $(".name").text(data.name);
+  $(".temp").text(temp + "\xB0C/ " + tempF + "\xB0F");
+  var rex = data.weather[0].description.toString().split(' ');
+  if (rex.includes('rain')) {
+      $('.condition').text(data.weather[0].description + rain);
+      $('.weatherEl').css('background-image',"url('assets/images/rain.gif')");
+  } else if (rex.includes('clear')) {
+      $('.condition').text(data.weather[0].description + sun);
+      $('.weatherEl').css('background-image',"url('assets/images/sun.gif')");
+  } else if (rex.includes('snow')) {
+      $('.condition').text(data.weather[0].description + snow);
+      $('.weatherEl').css('background-image',"url('assets/images/snow.gif')");
+  } else if (rex.includes('clouds')) {
+      $('.condition').text(data.weather[0].description + cloud);
+      $('.weatherEl').css('background-image',"url('assets/images/Clouds.gif')");
+  } else {
+      $('.condition').text(data.weather[0].description)
+  };
 };
+
 
 //time
 
