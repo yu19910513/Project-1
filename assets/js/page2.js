@@ -1,3 +1,5 @@
+//added in gunjan's cards; fixed the duplicated state info by adding in returns and breaking the picture function out into another; removed console.logs
+
 // Event listener for page 2 Go Back button
 $(".gobackbtn").on("click", function () {
   window.location.href = "index.html";
