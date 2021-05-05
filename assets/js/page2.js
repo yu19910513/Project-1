@@ -477,7 +477,7 @@ var flagArray =
 "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Wyoming.svg/2560px-Flag_of_Wyoming.svg.png"
 ];
 
-var stateArray = 
+var stateArray =
 ["Alabama",
 "Alaska",
 "Arizona",
@@ -529,3 +529,12 @@ var stateArray =
 "Wisconsin",
 "Wyoming"
 ];
+for (let a = 0; a < stateArray.length; a++) {
+  if (localStorage.getItem('stateVisited') == stateArray[a]) {
+  $('.flagImage').attr('data-src',flagArray[a]);
+  }else if(localStorage.getItem('stateVisited') == 'Washington'){
+    $('.flagImage').attr('data-src',flagArray[46]);
+  } else if(localStorage.getItem('stateVisited') == 'Georgia'){
+    $('.flagImage').attr('data-src',flagArray[9])
+  }
+  }
