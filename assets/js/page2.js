@@ -338,9 +338,7 @@ function getStateCapital(stateName, fact) {
       var wikiEl = doc1.querySelector(
         "body > div > table.wikitable.plainrowheaders.sortable"
       );
-      console.log(data);
       var rows = wikiEl.querySelectorAll("tr");
-      console.log(rows);
       for (i = 1; i < rows.length; i++) {
         if (rows[i].cells[0].textContent.trim() === stateName) {
           capitalName = rows[i].cells[1].textContent;
