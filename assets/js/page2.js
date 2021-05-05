@@ -344,7 +344,7 @@ var cloud = "🌥";
 var snow = "🌨";
 
 function weather() {
-        var url =   
+        var url =
         "https://api.openweathermap.org/data/2.5/weather?q=" +
         capitalName +
         "&appid=c24b1e69b12182932011de7f1b2d7c83";
@@ -662,4 +662,3 @@ for (let a = 0; a < stateArray.length; a++) {
     $('.flagImage').attr('data-src',flagArray[9])
   }
   }
-
