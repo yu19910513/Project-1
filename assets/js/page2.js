@@ -310,6 +310,14 @@ function getStateNickName(stateName, fact) {
           var listItemOne = doc1.querySelector(
             `tbody > tr:nth-child(${i}) > td:nth-child(2) > ul > li:nth-child(1)`
           );
+          // var nameRegex = "{.*?}";
+          // var regex = new RegExp(nameRegex);
+          // var input = "My name is {Gunjan} (Bhargava)";
+
+          // var output = regex.Replace(input, "{.*?}", "");
+
+          // output = regex.Replace(output, "(.*?)", "");
+          // console.log(output);
           nickName = listItemOne.textContent;
           stateNickNameEl.textContent = nickName;
         }
