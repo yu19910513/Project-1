@@ -127,8 +127,12 @@ $(".gobackbtn").on("click", function () {
         .then(function (responseAgain) {
           return responseAgain.json();
         })
-        .then(function (dataAgain) {
-          $(".info").append(dataAgain.query.pages[pageId].extract);
+        .then(function (dataAgain) { //code added to remove the listen and odd spellings of states at the beginning of each wiki article.
+          var paragraph1 = "z" + dataAgain.query.pages[pageId].extract;
+          var n = paragraph1.search(/z* is/);
+          console.log(n);
+          paragraph1= stateName + paragraph1.substring(n);
+          $(".info").append(paragraph1);
           $(".header").text(title);
         });
       });
@@ -137,8 +141,10 @@ $(".gobackbtn").on("click", function () {
 
     function getStateImages() {
       // set the next URL based on the state selected on the first page.
-      const url2 = `https://pixabay.com/api?q=${stateName}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
 
+      const url2 = `https://pixabay.com/api?q=${stateName + "+-jones+-michael+-flag+-map"}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=10&category=nature,science,education,places,animals,sports,buildings`;
+      
+      // education,places,animals,sports,buildings`;
       // this fetch pulls in images from pixabay.com/api.
       fetch(url2)
         .then(function (response) {
@@ -473,9 +479,7 @@ function getTimeZone(capitalName) {
   })
   .then(function (data) {
     generalInfo(data);
-    console.log(data);
     var timeZone = data.timezone;
-    console.log(timeZone);
     getTime(timeZone);
     // DC START - Changed this to keep updating the clock every 30 seconds ...
     if (timeInterval) {
