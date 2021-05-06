@@ -6,7 +6,7 @@
     content="upgrade-insecure-requests"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/uikit.min.css"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/page2.css"/>
     <title>Kid's Corner Page 2</title>
@@ -23,8 +23,9 @@
         <div>
           <div class="uk-margin-small-top uk-margin-small-bottom uk-card uk-card-default uk-card-body uk-border-rounded">
             <!-- https://www.w3schools.com/graphics/canvas_clock_start.asp -->
-            <canvas id="canvas" width="400" height="400"
-            style="background-color:#333">
+            <h3 class="currentTimeAndWeatherSection">Current Local Time</h3>
+            <canvas id="canvas" class=""
+            style="background-color: white">
             </canvas>
           </div>
         </div>
@@ -46,25 +47,18 @@
       </div>
     </div>
   </div>
+  <div class="uk-margin-bottom uk-height-medium uk-padding-bottom-large" data-uk-grid-margin>
     <h2 class="title2">Summary of <span class="header"></span></h2>
-    <div class="uk-grid uk-padding-bottom uk-flex uk-flex-wrap" data-uk-grid-margin>
-      <div class="uk-width-1-4@m uk-margin-large-bottom">
-        <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-border-rounded flagImage" data-src="" alt="State-Flag" uk-img>
-        </div>
+    <div class="js-wrapper uk-panel uk-width-1-1 uk-height-max-large stateInformation">
+      <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper" class="uk-margin">
+        <img class=" flagImage uk-align-left uk-margin-remove-adjacent" src="" width="300" height="auto" alt="State-Flag">
+        <p class="info funFont1"></p>
       </div>
-      <div class="uk-width-3-4@m">
-        <div class="uk-border-rounded uk-height-medium uk-flex uk-flex-left uk-flex-middle uk-background-cover uk-dark" data-src="https://images.pexels.com/photos/3826435/pexels-photo-3826435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" uk-img>
-          <div class="js-wrapper uk-text-left@l uk-padding stateInformation">
-            <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
-              <p class="info funFont1">
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
 
       <div class="uk-width-1-1 uk-margin-medium-top uk-margin-left uk-margin-right">
-        <h2 class="title2">Pictures of <span class="header" ></span></h2>
+        <h2 class="title2" style="padding-top: 1em; height: 1em;">Pictures of <span class="header" ></span></h2>
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: scale">
           <ul id="statePictureList" class="uk-slideshow-items uk-border-rounded">
               <li>
