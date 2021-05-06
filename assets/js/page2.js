@@ -122,7 +122,7 @@ $(".gobackbtn").on("click", function () {
 
     function getStateImages (){
       // set the next URL based on the state selected on the first page.
-      const url2 = `https://pixabay.com/api?q=${stateName}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science,education,places,animals,sports,buildings`;
+      const url2 = `https://pixabay.com/api?q=${stateName}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=5&category=backgrounds,nature,science`;
 
       // this fetch pulls in images from pixabay.com/api.
       fetch(url2)
