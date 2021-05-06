@@ -304,8 +304,12 @@ $(".gobackbtn").on("click", function () {
               stateCapitalEl.textContent = capitalName;
             }
             if (stateName == 'Maine'){
-              weatherZip()
-            } else {
+              weatherZip(04330);
+            }
+            else if (stateName == 'Kentucky'){
+              weatherZip(40603);
+            }
+            else {
               weather(capitalName);
               getTimeZone(capitalName);
             }
@@ -314,8 +318,8 @@ $(".gobackbtn").on("click", function () {
     };
 
     /// for our speical MAINE problem
-    function weatherZip() {
-      var url = "https://api.openweathermap.org/data/2.5/weather?zip=04330,us&appid=c24b1e69b12182932011de7f1b2d7c83";
+    function weatherZip(zipcode) {
+      var url = "https://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=c24b1e69b12182932011de7f1b2d7c83";
       fetch(url)
       .then(function (response) {
           return response.json();
