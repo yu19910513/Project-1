@@ -76,7 +76,6 @@ $(".gobackbtn").on("click", function () {
           return responseAgain.json();
         })
         .then(function (dataAgain) {
-          $('.flagImage').attr('data-src',dataAgain.query.pages[pageId].thumbnail.source);
           $('.info').append(dataAgain.query.pages[pageId].extract);
           $('.header').text(title)
         })
@@ -463,7 +462,7 @@ function getTime (timeZone){
       $('.currenttime').text(currentTime);
   }
 };
-
+// https://www.w3schools.com/graphics/canvas_clock_start.asp
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var radius = canvas.height / 2;
@@ -543,48 +542,6 @@ function drawHand(ctx, pos, length, width) {
     ctx.stroke();
     ctx.rotate(-pos);
 }
-
-
-
-
-
-
-
-// var cityArray = ['America/New_York', 'America/Los_Angeles', 'America/Phoenix', 'America/Boise', 'America/Kentucky/Louisville', 'America/Anchorage', 'Pacific/Honolulu']
-// var cT = ["Alabama","Illinois" , "Iowa","Minnesota","Mississippi" ,"Oklahoma" ,"Texas" ,"Missouri" ,"South Dakota" , "Wisconsin" ,"Kansas","Kentucky","Louisiana","Nebraska","North Dakota"];
-// var mT = ["Colorado" ,"Idaho","Montana", "Nevada",  "Wyoming" ,"New Mexico" ,"Utah" ];
-// var eT = ["Arkansas","Connecticut","Delaware" ,"Ohio","Florida" , "Pennsylvania" ,"Georgia (U.S. state)", "Georgia", "Indiana" ,"Maine" ,"Maryland","West Virginia","Massachusetts","Vermont" ,"Virginia" ,"Michigan", "New Hampshire","New Jersey" ,"New York" ,"Rhode Island" ,"South Carolina","Tennessee","North Carolina"]
-// var pST = ["California","Oregon" , "Washington (state)", "Washington" ]
-
-// function time(){
-//   var d = new Date();
-//   for (let j = 0; j < cT.length; j++) {
-//   for (let k = 0; k < mT.length; k++) {
-//   for (let l = 0; l < eT.length; l++) {
-//   for (let p = 0; p < pST.length; p++) {
-//   if (localStorage.getItem('stateVisited') === 'Arizona' ){
-//   $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[2] }))}
-//   if (localStorage.getItem('stateVisited') === cT[j]){
-//   $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[4] }))}
-//   if (localStorage.getItem('stateVisited') === mT[k]){
-//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[3] }))}
-//   if (localStorage.getItem('stateVisited') === eT[l]){
-//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[0] }))}
-//   if (localStorage.getItem('stateVisited') === pST[p]){
-//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[1] }))}
-//   if(localStorage.getItem('stateVisited') === 'Hawaii'){
-//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[6] }))}
-//  if (localStorage.getItem('stateVisited') === 'Alaska'){
-//     $('.currenttime').text(d.toLocaleString('en-US', { timeZone: cityArray[5] }))}
-//   }
-//   }
-//   }
-//   }
-// };
-
-// setInterval(time, 1000);
-
-
 
 var flagArray =
 ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Alabama.svg/2560px-Flag_of_Alabama.svg.png",
@@ -693,10 +650,13 @@ var stateArray =
 ];
 for (let a = 0; a < stateArray.length; a++) {
   if (localStorage.getItem('stateVisited') == stateArray[a]) {
-  $('.flagImage').attr('data-src',flagArray[a]);
+  $('.flagImage').attr('src',flagArray[a]);
   }else if(localStorage.getItem('stateVisited') == 'Washington'){
-    $('.flagImage').attr('data-src',flagArray[46]);
+    $('.flagImage').attr('src',flagArray[46]);
   } else if(localStorage.getItem('stateVisited') == 'Georgia'){
-    $('.flagImage').attr('data-src',flagArray[9])
+    $('.flagImage').attr('src',flagArray[9])
+  }
+  else if(localStorage.getItem('stateVisited') == 'Maine'){
+    $('.flagImage').attr('src',flagArray[19])
   }
   }
