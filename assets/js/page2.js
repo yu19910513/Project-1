@@ -24,6 +24,7 @@ $(".gobackbtn").on("click", function () {
     var stateMammalEl = document.querySelector(".state-mammal");
     var stateTreeEl = document.querySelector(".state-tree");
     var stateNickNameEl = document.querySelector(".state-nickname");
+    var timeInterval;
 
     var symbols = [
       "List_of_U.S._state_and_territory_flowers",
@@ -413,11 +414,20 @@ function getTimeZone(capitalName) {
       return response.json();
   })
   .then(function (data) {
-  generalInfo(data);
-  console.log(data);
-  var timeZone = data.timezone;
-  console.log(timeZone);
-  getTime(timeZone);
+    generalInfo(data);
+    console.log(data);
+    var timeZone = data.timezone;
+    console.log(timeZone);
+    getTime(timeZone);
+    // DC START - Changed this to keep updating the clock every 30 seconds ...
+    if (timeInterval) {
+      // If there was a prior timer, clear it to stop ...
+      clearInterval(timeInterval);
+    }
+    timeInterval = setInterval(function() {
+      getTime(timeZone); 
+    }, 30 * 1000); 
+    // DC END
   });
 }
 
