@@ -195,8 +195,10 @@ function getStateFlower(stateName, fact) {
           var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
           flowerName = flowerName.replace(regex, "");
           stateFlowerEl.textContent = flowerName;
+          return;
         }
       }
+      stateFlowerEl.textContent = "None";
     });
 }
 
@@ -223,8 +225,10 @@ function getStateButterfly(stateName, fact) {
           var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
           butterflyName = butterflyName.replace(regex, "");
           stateButterflyEl.textContent = butterflyName;
+          return;
         }
       }
+      stateButterflyEl.textContent = "None";
     });
 }
 
@@ -251,8 +255,10 @@ function getStateBird(stateName, fact) {
           var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))");
           birdName = birdName.replace(regex, "");
           stateBirdEl.textContent = birdName;
+          return;
         }
       }
+      stateBirdEl.textContent = "None";
     });
 }
 
@@ -287,8 +293,10 @@ function getStateMammal(stateName, fact) {
           var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
           mammalName = mammalName.replace(regex, "");
           stateMammalEl.textContent = mammalName;
+          return;
         }
       }
+      stateMammalEl.textContent = "None";
     });
 }
 
@@ -315,8 +323,10 @@ function getStateTree(stateName, fact) {
           var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
           treeName = treeName.replace(regex, "");
           stateTreeEl.textContent = treeName;
+          return;
         }
       }
+      stateTreeEl.textContent = "None";
     });
 }
 
@@ -404,6 +414,7 @@ function getStateNickName(stateName, fact) {
           return;
         }
       }
+      stateNickNameEl.textContent = "None";
     });
 }
 // weather data for page 2
