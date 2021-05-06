@@ -42,6 +42,11 @@ $(".gobackbtn").on("click", function () {
     // Functions for page 2 -
     function startCollectingData() {
       stateName = localStorage.getItem("stateVisited");
+      if (!stateName) {
+        // If "stateVisited" wasn't in localStorage, we shouldn't be on page2.html,
+        // we should be back on index.html ...
+        window.location.href = "index.html";
+      }
       getInfo(stateName, symbols[index]);
     }
 
