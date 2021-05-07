@@ -1,3 +1,20 @@
+const key = [
+  "4f3fa4ee51b57a31dc240195cd979ba1",
+  "1522b7bd712aa3fcccd430112139b31a",
+  "7e7cded75b6a5d1f862b806445fcdb8d",
+  "c5be3c45e5c1817e08df7b85bde33f8f",
+  "0ed5b024fd86bbe5a3c6c3309a286f6d",
+  "404537c8760e2e7f80c1b34a2acb6068",
+  "d7f7c2c1ba064f157eaee8448656ff33",
+  "9ca49688ce7c1f16cee367b0c71e4a3f",
+  "f336774a2e3724c443c558b879f4e3b9",
+  "2d91c3e3ea90f1082db08374e4aaaeac"
+];
+const random = Math.floor(Math.random() * key.length);
+console.log(key[random]);
+
+
+
 // Event listener for page 2 Go Back button
 $(".gobackbtn").on("click", function () {
       window.location.href = "index.html";
@@ -73,7 +90,7 @@ $(".gobackbtn").on("click", function () {
         var pageId = data.query.search[0].pageid;
         fetch(
           "http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles=" +
-          title + 
+          title +
           "&exintro=1&origin=*"
           )
         .then(function (responseAgain) {
@@ -85,7 +102,7 @@ $(".gobackbtn").on("click", function () {
         });
       });
     } else if (stateName == "Georgia") {
-        url = 
+        url =
         "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Georgia(U.S.state)&format=json&origin=*";
       fetch(url)
       .then(function (response) {
@@ -95,7 +112,7 @@ $(".gobackbtn").on("click", function () {
         var title = data.query.search[0].title;
         var pageId = data.query.search[0].pageid;
         fetch(
-          "http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles=" + 
+          "http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles=" +
           title +
           "&exintro=1&origin=*"
         )
@@ -109,7 +126,7 @@ $(".gobackbtn").on("click", function () {
       });
     } else {
       url =
-      "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + 
+      "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" +
       stateName +
       "&format=json&origin=*";
       fetch(url)
@@ -120,7 +137,7 @@ $(".gobackbtn").on("click", function () {
         var title = data.query.search[0].title;
         var pageId = data.query.search[0].pageid;
         fetch(
-          "http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles=" + 
+          "http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles=" +
         title +
         "&exintro=1&origin=*"
         )
@@ -357,10 +374,11 @@ $(".gobackbtn").on("click", function () {
               capitalName = rows[i].cells[1].textContent;
               stateCapitalEl.textContent = capitalName;
             }
+            console.log(stateName);
             if (stateName == "Maine") {
-              weatherZip(04330);
+              weatherZip('04330');
             } else if (stateName == "Kentucky") {
-              weatherZip(40603);
+              weatherZip('40603');
             }
         }
         weather(capitalName);
@@ -370,8 +388,7 @@ $(".gobackbtn").on("click", function () {
 
     /// for our speical MAINE problem
     function weatherZip(zipcode) {
-      var url = 
-      "https://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=c24b1e69b12182932011de7f1b2d7c83";
+      var url = "https://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=" + key[random];
       fetch(url)
       .then(function (response) {
           return response.json();
@@ -433,7 +450,7 @@ function weather() {
         var url =
         "https://api.openweathermap.org/data/2.5/weather?q=" +
         capitalName +
-        "&appid=c24b1e69b12182932011de7f1b2d7c83";
+        "&appid=" + key[random];
         fetch(url)
         .then(function (response) {
             return response.json();
@@ -469,10 +486,7 @@ function generalInfo(data) {
 //time
 
 function getTimeZone(capitalName) {
-  var url =
-  "https://api.openweathermap.org/data/2.5/weather?q=" +
-  capitalName + 
-  "&appid=c24b1e69b12182932011de7f1b2d7c83";
+  var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + capitalName + '&appid=' + key[random];
   fetch(url)
   .then(function (response) {
       return response.json();
@@ -487,8 +501,8 @@ function getTimeZone(capitalName) {
       clearInterval(timeInterval);
     }
     timeInterval = setInterval(function() {
-      getTime(timeZone); 
-    }, 30 * 1000); 
+      getTime(timeZone);
+    }, 30 * 10000);
     // DC END
   });
 }
@@ -584,7 +598,7 @@ function drawTime(ctx, radius) {
     var second = now.getSeconds();
     //hour
     hour = hour % 12;
-    hour = 
+    hour =
     (hour * Math.PI) / 6 +
     (minute * Math.PI) / (6 * 60) +
     (second * Math.PI) / (360 * 60);
