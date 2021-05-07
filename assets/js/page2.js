@@ -96,7 +96,15 @@ function getStateSummary() {
             return responseAgain.json();
           })
           .then(function (dataAgain) {
-            $(".info").append(dataAgain.query.pages[pageId].extract);
+            var regex = new RegExp(
+              "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))",
+              "g"
+            );
+            paragraph1 = dataAgain.query.pages[pageId].extract.replace(
+              regex,
+              ""
+            );
+            $(".info").append(paragraph1);
             $(".header").text(title.split("(state)").join(" "));
           });
       });
@@ -119,7 +127,15 @@ function getStateSummary() {
             return responseAgain.json();
           })
           .then(function (dataAgain) {
-            $(".info").append(dataAgain.query.pages[pageId].extract);
+            var regex = new RegExp(
+              "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))",
+              "g"
+            );
+            paragraph1 = dataAgain.query.pages[pageId].extract.replace(
+              regex,
+              ""
+            );
+            $(".info").append(paragraph1);
             $(".header").text(title.split("(U.S. state)").join(" "));
           });
       });
@@ -142,7 +158,15 @@ function getStateSummary() {
             return responseAgain.json();
           })
           .then(function (dataAgain) {
-            $(".info").append(dataAgain.query.pages[pageId].extract);
+            var regex = new RegExp(
+              "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))",
+              "g"
+            );
+            paragraph1 = dataAgain.query.pages[pageId].extract.replace(
+              regex,
+              ""
+            );
+            $(".info").append(paragraph1);
             $(".header").text(title.split("(state)").join(" "));
           });
       });
