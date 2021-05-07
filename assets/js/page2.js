@@ -142,7 +142,7 @@ $(".gobackbtn").on("click", function () {
     function getStateImages() {
       // set the next URL based on the state selected on the first page.
 
-      const url2 = `https://pixabay.com/api?q=${stateName + "+-jones+-michael+-flag+-map"}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=10&category=nature,science,education,places,animals,sports,buildings`;
+      const url2 = `https://pixabay.com/api?q=${stateName + "+-jones+-michael+-flag+-map+-oz"}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=10&category=nature,science,education,places,animals,sports,buildings`;
       
       // education,places,animals,sports,buildings`;
       // this fetch pulls in images from pixabay.com/api.
@@ -362,11 +362,10 @@ $(".gobackbtn").on("click", function () {
             } else if (stateName == "Kentucky") {
               weatherZip(40603);
             }
-            else {
-              weather(capitalName);
-              getTimeZone(capitalName);
-            }
-        }});
+        }
+        weather(capitalName);
+        getTimeZone(capitalName);      
+      });
     }
 
     /// for our speical MAINE problem
@@ -430,6 +429,7 @@ var cloud = "🌥";
 var snow = "🌨";
 
 function weather() {
+        console.log(capitalName);
         var url =
         "https://api.openweathermap.org/data/2.5/weather?q=" +
         capitalName +
@@ -547,15 +547,15 @@ function drawFace(ctx, radius) {
   ctx.fillStyle = "white";
   ctx.fill();
   grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
-  grad.addColorStop(0, "#333");
+  grad.addColorStop(0, "#000");
   grad.addColorStop(0.5, "white");
-  grad.addColorStop(1, "#333");
+  grad.addColorStop(1, "#000");
   ctx.strokeStyle = grad;
   ctx.lineWidth = radius * 0.1;
   ctx.stroke();
   ctx.beginPath();
   ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
-  ctx.fillStyle = "#333";
+  ctx.fillStyle = "#000";
   ctx.fill();
 }
 

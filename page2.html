@@ -14,18 +14,18 @@
 <body>
   <div class="uk-container uk-container-center uk-margin-top uk-margin-bottom uk-margin-left uk-container-expand uk-border-rounded">
     <h1 class="uk-text-center uk-heading-small uk-heading-divider title">Welcome to <span class="header"></span></h1>
-    <div class="uk-grid uk-flex" data-uk-grid-margin>
-      <p class="uk-margin-small-top">
-        <button class="uk-button uk-button-default uk-button-large funFont2 gobackbtn">Go Back</button>
-      </p>
+    <button class="uk-button uk-button-default uk-button-large funFont2 gobackbtn">Go Back</button>
+    <div class="uk-grid uk-flex uk-flex-center" data-uk-grid-margin>
       <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
         <div>
           <div class="uk-margin-small-top uk-margin-small-bottom uk-card uk-card-default uk-card-body uk-border-rounded">
               <!-- https://www.w3schools.com/graphics/canvas_clock_start.asp -->
             <h3 class="currentTimeAndWeatherSection">Current Local Time</h3>
-            <canvas id="canvas" class=""
-            style="background-color: white">
-            </canvas>
+            <div style= "width: 100%; height: same-as-width;">
+              <canvas id="canvas" class=""
+              style="background-color: black;">
+              </canvas>
+            </div>
           </div>
         </div>
         <div>
@@ -56,8 +56,8 @@
     </div>
   </div>
   <div class="uk-width-1-1 uk-margin-medium-top uk-margin-left uk-margin-right">
-    <h2 class="title2" style="padding-top: 1em; height: 1em;">Pictures of <span class="header" ></span></h2>
-    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: scale">
+    <h2 class="title2" style="padding-top: 1.5em; height: 1em;">Pictures of <span class="header" ></span></h2>
+    <div class="uk-container uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: scale">
       <ul id="statePictureList" class="uk-slideshow-items uk-border-rounded">
           <li>
             <img src="https://images.pexels.com/photos/963486/pexels-photo-963486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1000" alt="no image available" uk-cover/>
@@ -75,8 +75,8 @@
       <a class="uk-position-center-right uk-position-small uk-hidden-hover" style="color:black; background-color: white; border-radius: .5em;"  href="#" uk-slidenav-next uk-slideshow-item="next"></a>
     </div>
   </div>
-  <div
-  class="uk-grid-medium uk-child-width-expand@s uk-text-center uk-width-1-1 uk-margin-top uk-margin-bottom .uk-grid-small uk-flex-around"
+  <div class="uk-container uk-flex uk-flex-center">
+  <div class="uk-grid-medium uk-child-width-expand@s uk-text-center uk-width-1-1 uk-margin-top uk-margin-bottom uk-grid-small uk-flex-around" style="margin-left: 0 !important;"
   uk-grid>
     <h2 class="title2">Fun Facts About <span class="header"></span></h2>
     <p>Filp the cards to learn more!</p>
@@ -151,6 +151,7 @@
 
         </div>
       </div>
+  </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
