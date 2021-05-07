@@ -374,7 +374,6 @@ $(".gobackbtn").on("click", function () {
               capitalName = rows[i].cells[1].textContent;
               stateCapitalEl.textContent = capitalName;
             }
-            console.log(stateName);
             if (stateName == "Maine") {
               weatherZip('04330');
             } else if (stateName == "Kentucky") {
