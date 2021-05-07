@@ -98,7 +98,7 @@ $(".gobackbtn").on("click", function () {
         })
         .then(function (dataAgain) {
           $(".info").append(dataAgain.query.pages[pageId].extract);
-          $(".header").text(title);
+          $(".header").text(title.split("(state)").join(" "));
         });
       });
     } else if (stateName == "Georgia") {
@@ -121,9 +121,32 @@ $(".gobackbtn").on("click", function () {
         })
         .then(function (dataAgain) {
           $(".info").append(dataAgain.query.pages[pageId].extract);
-          $(".header").text(title);
+          $(".header").text(title.split("(U.S. state)").join(" "));
         });
       });
+    } else if (stateName == "New York") {
+      url =
+      "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=NewYork(state)&format=json&origin=*";
+    fetch(url)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+      var title = data.query.search[0].title;
+      var pageId = data.query.search[0].pageid;
+      fetch(
+        "http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&iilimit=50&titles=" +
+        title +
+        "&exintro=1&origin=*"
+      )
+      .then(function (responseAgain) {
+        return responseAgain.json();
+      })
+      .then(function (dataAgain) {
+        $(".info").append(dataAgain.query.pages[pageId].extract);
+        $(".header").text(title.split("(state)").join(" "));
+      });
+    });
     } else {
       url =
       "http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" +
