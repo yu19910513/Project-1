@@ -11,7 +11,6 @@ const key = [
     "2d91c3e3ea90f1082db08374e4aaaeac"
   ];
   const random = Math.floor(Math.random() * key.length);
-  console.log(key[random]);
   
   
 
@@ -60,8 +59,6 @@ $(".gobackbtn").on("click", function () {
   function startCollectingData() {
     stateName = localStorage.getItem("stateVisited");
     if (!stateName) {
-      // If "stateVisited" wasn't in localStorage, we shouldn't be on page2.html,
-      // we should be back on index.html ...
       window.location.href = "index.html";
     }
     getInfo(stateName, symbols[index]);
@@ -90,7 +87,6 @@ $(".gobackbtn").on("click", function () {
           return response.json();
         })
         .then(function (data) {
-          console.log(data);
           var title = data.query.search[0].title;
           var pageId = data.query.search[0].pageid;
           fetch(
@@ -172,24 +168,22 @@ $(".gobackbtn").on("click", function () {
             .then(function (responseAgain) {
               return responseAgain.json();
             })
-            .then(function (dataAgain) { //code added to remove the listen and odd spellings of states at the beginning of each wiki article.
+            .then(function (dataAgain) {
                 var paragraph1 = "z" + dataAgain.query.pages[pageId].extract;
-                var n = paragraph1.search(/z* is/);
-                console.log(n);
+                var n = paragraph1.search(/z*is/);
                 paragraph1= stateName + paragraph1.substring(n);
                 $(".info").append(paragraph1);
-              $(".header").text(title);
+                $(".header").text(title);
+
+
             });
         });
     }
   }
   
   function getStateImages() {
-    // set the next URL based on the state selected on the first page.
-
     const url2 = `https://pixabay.com/api?q=${stateName + "+-jones+-michael+-flag+-map+-oz"}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=10&category=nature,science,education,places,animals,sports,buildings`;
   
-    // education,places,animals,sports,buildings`;
     // this fetch pulls in images from pixabay.com/api.
     fetch(url2)
       .then(function (response) {
@@ -212,14 +206,14 @@ $(".gobackbtn").on("click", function () {
       });
   }
   
-  // DC - https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+  // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
     }
   }
   
-  // // functions for fun facts on page 2
+  // functions for fun facts on page 2
   function getStateFlower(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -413,7 +407,6 @@ $(".gobackbtn").on("click", function () {
     });
   }
   
-  /// for our speical MAINE problem
   function weatherZip(zipcode) {
     var url = "https://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=" + key[random];
     fetch(url)
@@ -465,6 +458,7 @@ $(".gobackbtn").on("click", function () {
         stateNickNameEl.textContent = "None";
       });
   }
+
   // weather data for page 2
   
   var rain = "🌧";
@@ -522,15 +516,12 @@ $(".gobackbtn").on("click", function () {
         generalInfo(data);
         var timeZone = data.timezone;
         getTime(timeZone);
-        // DC START - Changed this to keep updating the clock every 30 seconds ...
     if (timeInterval) {
-        // If there was a prior timer, clear it to stop ...
         clearInterval(timeInterval);
       }
       timeInterval = setInterval(function() {
         getTime(timeZone);
       }, 30 * 1000);
-      // DC END
       });
   }
   
