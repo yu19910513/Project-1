@@ -11,6 +11,16 @@ body {
     background-color: black;
 }
 
+audio {
+    transform: scale(.3);
+}
+
+audio:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(2px 3px 3px #333);
+}
+    
+
 #map {
     max-height: 800px;
     width: auto;
