@@ -1,22 +1,68 @@
+body {
+  background-color: black;
+}
+
+.title {
+  text-align: center;
+  color: yellow;
+  font-weight: bolder;
+  font-size: 5em;
+  font-family: "Cabin Sketch", cursive;
+}
+
+.title2 {
+  text-align: center;
+  color: yellow;
+  font-weight: bolder;
+  font-size: 3em;
+  font-family: "Cabin Sketch", cursive;
+}
+
+.subtitle-2 {
+  text-align: center;
+  color: yellow;
+  font-weight: bolder;
+  font-size: 2em;
+  font-family: "Cabin Sketch", cursive;
+}
+
+.gobackbtn {
+  color: yellow;
+}
+
+.gobackbtn:hover {
+  background-image: none;
+  background-color: #ff00ff;
+  color: darkblue;
+}
+
 .funFont1 {
-  font-family: 'Cabin Sketch', cursive, sans-serif;
+  font-family: "Cabin Sketch", cursive, sans-serif;
   font-size: 1em;
-  color: lightblue; 
+  color: white;
 }
 
 .funFont2 {
-  font-family: 'Cabin Sketch', cursive, sans-serif;
-  font-size: 2em; 
+  font-family: "Cabin Sketch", cursive, sans-serif;
+  font-size: 2em;
 }
 
 .funFont3 {
-  font-family: 'Cabin Sketch', cursive, sans-serif;
-  font-size: 8em; 
+  font-family: "Cabin Sketch", cursive, sans-serif;
+  font-size: 8em;
   color: black;
+}
+.funFont4 {
+  color: darkblue;
+}
+
+.currentTimeAndWeatherSection {
+  font-family: "Cabin Sketch", cursive, sans-serif;
+  font-size: 26px;
+  color: darkblue;
 }
 
 .flagImage {
-  margin-left: 20px;
   min-width: 250px;
 }
 
@@ -25,11 +71,42 @@
 }
 
 .pixabayIcon {
-  height: 70px;
+  height: 2rem;
 }
 
 .container {
   padding-right: 0;
+}
+
+.custom-bg-color1 {
+  background-color: #c04242;
+}
+
+.custom-bg-color2 {
+  background-color: #ffa500;
+}
+
+.custom-bg-color3 {
+  background-color: #ffff00;
+}
+
+.custom-bg-color4 {
+  background-color: #008000;
+}
+
+.custom-bg-color5 {
+  background-color: #7070f8;
+}
+
+.custom-bg-color6 {
+  background-color: #983cda;
+}
+
+.custom-bg-color7 {
+  background-color: #ee82ee;
+}
+.custom-para-color {
+  color: black;
 }
 
 @media screen and (max-width: 576px) {
