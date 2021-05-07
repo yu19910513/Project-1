@@ -545,7 +545,7 @@ function drawFace(ctx, radius) {
   var grad;
   ctx.beginPath();
   ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "skyblue";
   ctx.fill();
   grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
   grad.addColorStop(0, "#333");
@@ -556,7 +556,7 @@ function drawFace(ctx, radius) {
   ctx.stroke();
   ctx.beginPath();
   ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
-  ctx.fillStyle = "#333";
+  ctx.fillStyle = "red";
   ctx.fill();
 }
 
