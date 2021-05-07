@@ -35,12 +35,7 @@ Here is a list of the APIs:
 * Wikipedia
 * Pixabay
 
-
-## Lessons Learned and Challenges
-
-## Future improvements
-
-## Team Cool-Kids:
+## Team Cool-Kidz:
 
 * Donna Crawford
 * Gunjan Bhargava
