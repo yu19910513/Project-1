@@ -240,7 +240,7 @@ $(".gobackbtn").on("click", function () {
             return;
           }
         }
-        stateFlowerEl.textContent = "None";
+        stateFlowerEl.textContent = "This state does not have a state flower";
       });
   }
   
@@ -270,7 +270,7 @@ $(".gobackbtn").on("click", function () {
             return;
           }
         }
-        stateButterflyEl.textContent = "None";
+        stateButterflyEl.textContent = "This state does not have a state butterfly";
       });
   }
   
@@ -300,7 +300,7 @@ $(".gobackbtn").on("click", function () {
             return;
           }
         }
-        stateBirdEl.textContent = "None";
+        stateBirdEl.textContent = "This state does not have a state bird";
       });
   }
   
@@ -330,7 +330,7 @@ $(".gobackbtn").on("click", function () {
             } else if (rows[i].cells[3].textContent) {
               mammalName = rows[i].cells[3].textContent;
             } else {
-              mammalName = "Dont have State Mammal";
+              mammalName = "This state does not have a state mammal";
             }
             var regex = new RegExp("(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))", "g");
             mammalName = mammalName.replace(regex, "");
@@ -338,7 +338,7 @@ $(".gobackbtn").on("click", function () {
             return;
           }
         }
-        stateMammalEl.textContent = "None";
+        stateMammalEl.textContent = "This state does not have a state mammal";
       });
   }
   
@@ -368,7 +368,7 @@ $(".gobackbtn").on("click", function () {
             return;
           }
         }
-        stateTreeEl.textContent = "None";
+        stateTreeEl.textContent = "This state does not have a state tree";
       });
   }
   
@@ -455,7 +455,7 @@ $(".gobackbtn").on("click", function () {
             return;
           }
         }
-        stateNickNameEl.textContent = "None";
+        stateNickNameEl.textContent = "This state does not have a state nickname";
       });
   }
 
