@@ -59,6 +59,11 @@ $(".gobackbtn").on("click", function () {
   // Functions for page 2 -
   function startCollectingData() {
     stateName = localStorage.getItem("stateVisited");
+    if (!stateName) {
+      // If "stateVisited" wasn't in localStorage, we shouldn't be on page2.html,
+      // we should be back on index.html ...
+      window.location.href = "index.html";
+    }
     getInfo(stateName, symbols[index]);
   }
   
@@ -524,7 +529,7 @@ $(".gobackbtn").on("click", function () {
       }
       timeInterval = setInterval(function() {
         getTime(timeZone);
-      }, 30 * 10000);
+      }, 30 * 1000);
       // DC END
       });
   }
@@ -580,7 +585,7 @@ $(".gobackbtn").on("click", function () {
     var grad;
     ctx.beginPath();
     ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "skyblue";
     ctx.fill();
     grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
     grad.addColorStop(0, "#333");
@@ -591,7 +596,7 @@ $(".gobackbtn").on("click", function () {
     ctx.stroke();
     ctx.beginPath();
     ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
-    ctx.fillStyle = "#333";
+    ctx.fillStyle = "red";
     ctx.fill();
   }
   
