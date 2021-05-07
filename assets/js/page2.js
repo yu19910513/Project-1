@@ -1,3 +1,20 @@
+const key = [
+  "4f3fa4ee51b57a31dc240195cd979ba1",
+  "1522b7bd712aa3fcccd430112139b31a",
+  "7e7cded75b6a5d1f862b806445fcdb8d",
+  "c5be3c45e5c1817e08df7b85bde33f8f",
+  "0ed5b024fd86bbe5a3c6c3309a286f6d",
+  "404537c8760e2e7f80c1b34a2acb6068",
+  "d7f7c2c1ba064f157eaee8448656ff33",
+  "9ca49688ce7c1f16cee367b0c71e4a3f",
+  "f336774a2e3724c443c558b879f4e3b9",
+  "2d91c3e3ea90f1082db08374e4aaaeac"
+];
+const random = Math.floor(Math.random() * key.length);
+console.log(key[random]);
+
+
+
 // Event listener for page 2 Go Back button
 $(".gobackbtn").on("click", function () {
       window.location.href = "index.html";
@@ -372,7 +389,7 @@ $(".gobackbtn").on("click", function () {
 
     /// for our speical MAINE problem
     function weatherZip(zipcode) {
-      var url = "https://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=e12c7511c0e5d4a3a6efe88d3de64476";
+      var url = "https://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=" + key[random];
       fetch(url)
       .then(function (response) {
           return response.json();
@@ -433,7 +450,7 @@ function weather() {
         var url =
         "https://api.openweathermap.org/data/2.5/weather?q=" +
         capitalName +
-        "&appid=e12c7511c0e5d4a3a6efe88d3de64476";
+        "&appid=" + key[random];
         fetch(url)
         .then(function (response) {
             return response.json();
@@ -469,7 +486,7 @@ function generalInfo(data) {
 //time
 
 function getTimeZone(capitalName) {
-  var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + capitalName + '&appid=e12c7511c0e5d4a3a6efe88d3de64476';
+  var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + capitalName + '&appid=' + key[random];
   fetch(url)
   .then(function (response) {
       return response.json();
@@ -485,7 +502,7 @@ function getTimeZone(capitalName) {
     }
     timeInterval = setInterval(function() {
       getTime(timeZone);
-    }, 30 * 1000);
+    }, 30 * 10000);
     // DC END
   });
 }
