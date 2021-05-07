@@ -14,8 +14,7 @@ On the state information page, the user is presented with the current local and 
 After the user is ready for another state, they can click the back button and return to the homepage. Once on the home page, the user can continue to select flags and states or the user can click on their passport to see the places they have visited. Once in the passport, when the user hovers on a stamp, it will get bigger. The user then can either close the passport to keep learning or erase their travel history. Finally, the user could click on the Fifty Nifty United States button to watch a youtube video of the song. 
 
 ### Mockup
-
-
+![Alt Text](./assets/images/KidsCorner.gif)
 ## Languages
 
 Here is a list of the languages:
@@ -43,4 +42,5 @@ Here is a list of the APIs:
 * Sandy Marr
 
 ## Deployed Link
+https://sandra-marr.github.io/Project-1/
 
