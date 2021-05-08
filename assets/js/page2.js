@@ -98,7 +98,10 @@ $(".gobackbtn").on("click", function () {
               return responseAgain.json();
             })
             .then(function (dataAgain) {
-              $(".info").append(dataAgain.query.pages[pageId].extract);
+              var paragraph1 = dataAgain.query.pages[pageId].extract;
+              var n = paragraph1.search(/z* is/);
+              paragraph1= stateName + paragraph1.substring(n);
+              $(".info").append(paragraph1);
               $(".header").text(title.split("(state)").join(" "));
             });
         });
@@ -121,7 +124,10 @@ $(".gobackbtn").on("click", function () {
               return responseAgain.json();
             })
             .then(function (dataAgain) {
-              $(".info").append(dataAgain.query.pages[pageId].extract);
+              var paragraph1 = dataAgain.query.pages[pageId].extract;
+              var n = paragraph1.search(/z* is/);
+              paragraph1= stateName + paragraph1.substring(n);
+              $(".info").append(paragraph1);
               $(".header").text(title.split("(U.S. state)").join(" "));
             });
         });
@@ -144,7 +150,10 @@ $(".gobackbtn").on("click", function () {
           return responseAgain.json();
         })
         .then(function (dataAgain) {
-          $(".info").append(dataAgain.query.pages[pageId].extract);
+          var paragraph1 = dataAgain.query.pages[pageId].extract;
+          var n = paragraph1.search(/z* is/);
+          paragraph1= stateName + paragraph1.substring(n);
+          $(".info").append(paragraph1);
           $(".header").text(title.split("(state)").join(" "));
         });
       });
@@ -169,12 +178,11 @@ $(".gobackbtn").on("click", function () {
               return responseAgain.json();
             })
             .then(function (dataAgain) {
-                var paragraph1 = "z" + dataAgain.query.pages[pageId].extract;
-                var n = paragraph1.search(/z*is/);
+                var paragraph1 = dataAgain.query.pages[pageId].extract;
+                var n = paragraph1.search(/z* is/);
                 paragraph1= stateName + paragraph1.substring(n);
                 $(".info").append(paragraph1);
                 $(".header").text(title);
-
 
             });
         });
@@ -400,6 +408,8 @@ $(".gobackbtn").on("click", function () {
             weatherZip('04330');
           } else if (stateName == "Kentucky") {
             weatherZip('40603');
+          } else if (stateName == "New Mexico") {
+            weatherZip('87501');
           }
           else if (stateName == "New Mexico") {
             weatherZip('87501');
