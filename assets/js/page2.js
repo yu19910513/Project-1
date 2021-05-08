@@ -408,6 +408,8 @@ $(".gobackbtn").on("click", function () {
             weatherZip('04330');
           } else if (stateName == "Kentucky") {
             weatherZip('40603');
+          } else if (stateName == "New Mexico") {
+            weatherZip('87501');
           }
       }
       weather(capitalName);
