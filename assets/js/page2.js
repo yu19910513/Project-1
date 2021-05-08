@@ -96,14 +96,9 @@ function getStateSummary() {
             return responseAgain.json();
           })
           .then(function (dataAgain) {
-            var regex = new RegExp(
-              "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))",
-              "g"
-            );
-            paragraph1 = dataAgain.query.pages[pageId].extract.replace(
-              regex,
-              ""
-            );
+            var paragraph1 = dataAgain.query.pages[pageId].extract;
+            var n = paragraph1.search(/z* is/);
+            paragraph1 = stateName + paragraph1.substring(n);
             $(".info").append(paragraph1);
             $(".header").text(title.split("(state)").join(" "));
           });
@@ -127,14 +122,9 @@ function getStateSummary() {
             return responseAgain.json();
           })
           .then(function (dataAgain) {
-            var regex = new RegExp(
-              "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))",
-              "g"
-            );
-            paragraph1 = dataAgain.query.pages[pageId].extract.replace(
-              regex,
-              ""
-            );
+            var paragraph1 = dataAgain.query.pages[pageId].extract;
+            var n = paragraph1.search(/z* is/);
+            paragraph1 = stateName + paragraph1.substring(n);
             $(".info").append(paragraph1);
             $(".header").text(title.split("(U.S. state)").join(" "));
           });
@@ -158,14 +148,9 @@ function getStateSummary() {
             return responseAgain.json();
           })
           .then(function (dataAgain) {
-            var regex = new RegExp(
-              "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))",
-              "g"
-            );
-            paragraph1 = dataAgain.query.pages[pageId].extract.replace(
-              regex,
-              ""
-            );
+            var paragraph1 = dataAgain.query.pages[pageId].extract;
+            var n = paragraph1.search(/z* is/);
+            paragraph1 = stateName + paragraph1.substring(n);
             $(".info").append(paragraph1);
             $(".header").text(title.split("(state)").join(" "));
           });
@@ -191,17 +176,9 @@ function getStateSummary() {
             return responseAgain.json();
           })
           .then(function (dataAgain) {
-            // var paragraph1 = "z" + dataAgain.query.pages[pageId].extract;
-            // var n = paragraph1.search(/z*is/);
-            // paragraph1= stateName + paragraph1.substring(n);
-            var regex = new RegExp(
-              "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))",
-              "g"
-            );
-            paragraph1 = dataAgain.query.pages[pageId].extract.replace(
-              regex,
-              ""
-            );
+            var paragraph1 = dataAgain.query.pages[pageId].extract;
+            var n = paragraph1.search(/z* is/);
+            paragraph1 = stateName + paragraph1.substring(n);
             $(".info").append(paragraph1);
             $(".header").text(title);
           });
@@ -431,6 +408,10 @@ function getStateCapital(stateName, fact) {
           weatherZip("04330");
         } else if (stateName == "Kentucky") {
           weatherZip("40603");
+        } else if (stateName == "New Mexico") {
+          weatherZip("87501");
+        } else if (stateName == "New Mexico") {
+          weatherZip("87501");
         }
       }
       weather(capitalName);
