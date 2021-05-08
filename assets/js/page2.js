@@ -11,14 +11,14 @@ const key = [
     "2d91c3e3ea90f1082db08374e4aaaeac"
   ];
   const random = Math.floor(Math.random() * key.length);
-  
-  
+
+
 
   // Event listener for page 2 Go Back button
 $(".gobackbtn").on("click", function () {
     window.location.href = "index.html";
   });
-  
+
   //Variables for page 2
   var stateName = "";
   var flowerName;
@@ -41,7 +41,7 @@ $(".gobackbtn").on("click", function () {
   var stateTreeEl = document.querySelector(".state-tree");
   var stateNickNameEl = document.querySelector(".state-nickname");
   var timeInterval;
-  
+
   var symbols = [
     "List_of_U.S._state_and_territory_flowers",
     "List_of_U.S._state_insects",
@@ -51,10 +51,10 @@ $(".gobackbtn").on("click", function () {
     "List_of_capitals_in_the_United_States",
     "List_of_U.S._state_and_territory_nicknames",
   ];
-  
+
   // Calling functions to run on page load
   startCollectingData();
-  
+
   // Functions for page 2 -
   function startCollectingData() {
     stateName = localStorage.getItem("stateVisited");
@@ -63,7 +63,7 @@ $(".gobackbtn").on("click", function () {
     }
     getInfo(stateName, symbols[index]);
   }
-  
+
   function getInfo() {
     stateName = localStorage.getItem("stateVisited");
     getStateCapital(stateName, symbols[5]);
@@ -76,7 +76,7 @@ $(".gobackbtn").on("click", function () {
     getStateSummary(stateName);
     getStateImages(stateName);
   }
-  
+
   function getStateSummary() {
     stateName = localStorage.getItem("stateVisited");
     if (stateName == "Washington") {
@@ -180,10 +180,10 @@ $(".gobackbtn").on("click", function () {
         });
     }
   }
-  
+
   function getStateImages() {
     const url2 = `https://pixabay.com/api?q=${stateName + "+-jones+-michael+-flag+-map+-oz"}&key=21438663-60940dce2a3b8f288719617da&lang=en&image_type=all&orientation=horizontal&safesearch=true&per_page=10&category=nature,science,education,places,animals,sports,buildings`;
-  
+
     // this fetch pulls in images from pixabay.com/api.
     fetch(url2)
       .then(function (response) {
@@ -205,14 +205,14 @@ $(".gobackbtn").on("click", function () {
         }
       });
   }
-  
+
   // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
     }
   }
-  
+
   // functions for fun facts on page 2
   function getStateFlower(stateName, fact) {
     fetch(
@@ -243,7 +243,7 @@ $(".gobackbtn").on("click", function () {
         stateFlowerEl.textContent = "This state does not have a state flower";
       });
   }
-  
+
   function getStateButterfly(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -273,7 +273,7 @@ $(".gobackbtn").on("click", function () {
         stateButterflyEl.textContent = "This state does not have a state butterfly";
       });
   }
-  
+
   function getStateBird(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -303,7 +303,7 @@ $(".gobackbtn").on("click", function () {
         stateBirdEl.textContent = "This state does not have a state bird";
       });
   }
-  
+
   function getStateMammal(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -341,7 +341,7 @@ $(".gobackbtn").on("click", function () {
         stateMammalEl.textContent = "This state does not have a state mammal";
       });
   }
-  
+
   function getStateTree(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -371,7 +371,7 @@ $(".gobackbtn").on("click", function () {
         stateTreeEl.textContent = "This state does not have a state tree";
       });
   }
-  
+
   function getStateCapital(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -401,12 +401,15 @@ $(".gobackbtn").on("click", function () {
           } else if (stateName == "Kentucky") {
             weatherZip('40603');
           }
+          else if (stateName == "New Mexico") {
+            weatherZip('87501');
+          }
       }
       weather(capitalName);
-      getTimeZone(capitalName);      
+      getTimeZone(capitalName);
     });
   }
-  
+
   function weatherZip(zipcode) {
     var url = "https://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=" + key[random];
     fetch(url)
@@ -419,7 +422,7 @@ $(".gobackbtn").on("click", function () {
         getTime(timeZone);
       });
   }
-  
+
   function getStateNickName(stateName, fact) {
     fetch(
       `http://en.wikipedia.org/w/api.php?action=parse&page=${fact}&format=json&origin=*`
@@ -460,12 +463,12 @@ $(".gobackbtn").on("click", function () {
   }
 
   // weather data for page 2
-  
+
   var rain = "🌧";
   var sun = "☀️";
   var cloud = "🌥";
   var snow = "🌨";
-  
+
   function weather() {
 
     var url =
@@ -480,7 +483,7 @@ $(".gobackbtn").on("click", function () {
         generalInfo(data);
       });
   }
-  
+
   function generalInfo(data) {
     var temp = Math.round(data.main.temp - 273.15);
     var tempF = Math.round((data.main.temp - 273.15) * 1.8 + 32);
@@ -503,9 +506,9 @@ $(".gobackbtn").on("click", function () {
       $(".condition").text(data.weather[0].description);
     }
   }
-  
+
   //time
-  
+
   function getTimeZone(capitalName) {
     var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + capitalName + '&appid=' + key[random];
     fetch(url)
@@ -524,7 +527,7 @@ $(".gobackbtn").on("click", function () {
       }, 30 * 1000);
       });
   }
-  
+
   function getTime(timeZone) {
     if (timeZone == "-18000") {
       var utc = -5; //"America/Chicago/central daylight"
@@ -557,7 +560,7 @@ $(".gobackbtn").on("click", function () {
       $(".currenttime").text(currentTime);
     }
   }
-  
+
   // https://www.w3schools.com/graphics/canvas_clock_start.asp
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
@@ -565,13 +568,13 @@ $(".gobackbtn").on("click", function () {
   ctx.translate(radius, radius);
   radius = radius * 0.9;
   setInterval(drawClock, 1000);
-  
+
   function drawClock() {
     drawFace(ctx, radius);
     drawNumbers(ctx, radius);
     drawTime(ctx, radius);
   }
-  
+
   function drawFace(ctx, radius) {
     var grad;
     ctx.beginPath();
@@ -590,7 +593,7 @@ $(".gobackbtn").on("click", function () {
     ctx.fillStyle = "red";
     ctx.fill();
   }
-  
+
   function drawNumbers(ctx, radius) {
     var ang;
     var num;
@@ -608,7 +611,7 @@ $(".gobackbtn").on("click", function () {
       ctx.rotate(-ang);
     }
   }
-  
+
   function drawTime(ctx, radius) {
     var now = new Date();
     var hour = now.getHours();
@@ -628,7 +631,7 @@ $(".gobackbtn").on("click", function () {
     second = (second * Math.PI) / 30;
     drawHand(ctx, second, radius * 0.9, radius * 0.02);
   }
-  
+
   function drawHand(ctx, pos, length, width) {
     ctx.beginPath();
     ctx.lineWidth = width;
@@ -639,7 +642,7 @@ $(".gobackbtn").on("click", function () {
     ctx.stroke();
     ctx.rotate(-pos);
   }
-  
+
     var flagArray = [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Alabama.svg/2560px-Flag_of_Alabama.svg.png",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/2560px-Flag_of_Alaska.svg.png",
@@ -692,7 +695,7 @@ $(".gobackbtn").on("click", function () {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Flag_of_Wisconsin.svg/2560px-Flag_of_Wisconsin.svg.png",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Wyoming.svg/2560px-Flag_of_Wyoming.svg.png",
   ];
-  
+
   var stateArray = [
     "Alabama",
     "Alaska",
@@ -756,4 +759,3 @@ $(".gobackbtn").on("click", function () {
       $(".flagImage").attr("src",flagArray[19]);
     }
     }
-  
